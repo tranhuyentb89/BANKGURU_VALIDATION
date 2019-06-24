@@ -12,8 +12,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AbstractTest {
 	private WebDriver driver;
@@ -25,12 +28,17 @@ public class AbstractTest {
 
 	protected WebDriver openMultiBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
+
+			WebDriverManager.firefoxdriver().version("0.24.0").setup();
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
+			WebDriverManager.chromedriver().version("2.46").setup();
 			driver = new ChromeDriver();
+		} else if (browserName.equalsIgnoreCase("ie")) {
+			WebDriverManager.iedriver().version("").setup();
+			driver = new InternetExplorerDriver();
 		} else if (browserName.equalsIgnoreCase("chromeheadless")) {
-			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
+			WebDriverManager.chromedriver().version("2.46").setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("window-size=1366x768");
 			options.addArguments("headless");

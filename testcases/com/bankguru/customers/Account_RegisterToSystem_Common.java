@@ -3,7 +3,6 @@ package com.bankguru.customers;
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -18,7 +17,7 @@ public class Account_RegisterToSystem_Common extends AbstractTest{
 	public static  String USER_ID;
 	public static  String PASSWORD;
 	WebDriver driver;
-	private String email, loginPageUrl;
+	private String email;
 	LoginPageObjects loginPage;
 	RegisterPageObjects registerPage;
 	HomePageObject homePage;
@@ -35,8 +34,8 @@ public class Account_RegisterToSystem_Common extends AbstractTest{
 		log.info("Register - Step 01: Verify Login form displayed");
 		verifyTrue(loginPage.isLoginFormDisplayed());
 
-		log.info("Register - Step 02: Get URL of Login form");
-		loginPageUrl = loginPage.getLoginPageUrl();
+//		log.info("Register - Step 02: Get URL of Login form");
+//		loginPageUrl = loginPage.getLoginPageUrl();
 
 		log.info("Register - Step 03: Click to here link");
 		registerPage = loginPage.clickToHereLink("here");

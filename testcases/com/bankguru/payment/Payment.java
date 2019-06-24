@@ -37,7 +37,7 @@ public class Payment extends AbstractTest {
 	private String email = "tranhuyentb89" + ramdomNumber() + "@gmail.com";
 	private String passwordAddNew = "123456";
 	private String amountToDeposit = "5000";
-	private String loginPageUrl, userID, password, customerID, accountType, today;
+	private String  today;
 
 	private String addressEdit = "1883 Cursus Avenue";
 	private String cityEdit = "Houston";
@@ -239,8 +239,12 @@ public class Payment extends AbstractTest {
 		deleteAccountPage.inputToDynamicField(driver, payerAccountID, "accountno");
 		deleteAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 		deleteAccountPage.sleepInSeconds(3000);
+		verifyEquals(deleteAccountPage.gettextAlert(driver), "Do you really want to delete this Account?");
 		deleteAccountPage.acceptAlert(driver);
+		deleteAccountPage.sleepInSeconds(3000);
+		verifyEquals(deleteAccountPage.gettextAlert(driver), "Account Deleted Sucessfully");
 		deleteAccountPage.acceptAlert(driver);
+
 		
 		homePage.openMultiplePages(driver, "Delete Account");
 		deleteAccountPage = PageFactoryManage.getDeleteAccountPage(driver);

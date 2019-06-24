@@ -1,1 +1,5 @@
-2019-06-24 23:09:15,925 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
+2019-06-25 00:57:54,982 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
+2019-06-25 00:57:55,092 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
+2019-06-25 00:57:55,094 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
+2019-06-25 00:57:56,785 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Input email and click to Login button
+2019-06-25 00:57:58,261 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 06: Get username and password

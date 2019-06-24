@@ -21,7 +21,7 @@ import pageObjects.RegisterPageObjects;
 
 public class NewCustomer extends AbstractTest {
 	WebDriver driver;
-	private String email, loginPageUrl, userID, password, editCustomerPageUrl;
+	private String email, editCustomerPageUrl;
 	private String numericValue = "1234", specialChar = "@" ;
 	String valueToInput ="huyen";
 	LoginPageObjects loginPage;

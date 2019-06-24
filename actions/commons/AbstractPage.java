@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -404,7 +403,7 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
 	}
-
+	
 	public Object removeAttributeInDOM(WebDriver driver, String locator, String attribute, String... values) {
 		locator = String.format(locator, (Object[]) values);
 		WebElement element = driver.findElement(By.xpath(locator));
@@ -540,7 +539,15 @@ public class AbstractPage {
 	}
 
 	public void inputToDynamicField(WebDriver driver, String value, String fieldName) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, fieldName);
+		removeAttributeInDOM(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "type", fieldName);
 		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, value, fieldName);
+		try {
+			Thread.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void clickToTextboxTextAreaButton(WebDriver driver, String fieldName) {
