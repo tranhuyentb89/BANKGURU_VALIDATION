@@ -25,8 +25,14 @@ public class LoginPageObjects extends AbstractPage {
 
 	public RegisterPageObjects clickToHereLink(String hereLinkText) {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
-		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
+		}
 		return PageFactoryManage.getRegisterPage(driver);
+
 	}
 
 	public void inputToUserIDTextbox(String userID) {
@@ -38,7 +44,12 @@ public class LoginPageObjects extends AbstractPage {
 	}
 
 	public HomePageObject clickToLoginButton() {
-		clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
+		}
 		return PageFactoryManage.getHomePage(driver);
 	}
 

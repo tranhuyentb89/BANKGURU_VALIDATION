@@ -1,0 +1,65 @@
+1561480000724	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\ACER\\AppData\\Local\\Temp\\rust_mozprofile.tKrnkjzHv6nV"
+1561480001322	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1561480001322	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1561480001322	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1561480005586	Marionette	INFO	Listening on port 57481
+1561480005657	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/index.php, line 1: SyntaxError: missing ) after argument list
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/CustomerRegMsg.php?cid=53009, line 1: TypeError: document.fbal is undefined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/EditCustomer.php, line 1: TypeError: document.fbal.txtaccno is undefined
+JavaScript error: http://demo.guru99.com/v4/manager/EditCustomer.php, line 1: ReferenceError: validatebal is not defined
+JavaScript error: http://demo.guru99.com/v4/manager/AccCreateMsg.php?aid=63109, line 1: TypeError: document.fbal is undefined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/AccCreateMsg.php?aid=63110, line 1: TypeError: document.fbal is undefined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/editAccount.php, line 1: TypeError: document.fbal.txtaccno is undefined
+JavaScript error: http://demo.guru99.com/v4/manager/editAccount.php, line 1: ReferenceError: validatebal is not defined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/editAccountPage.php, line 1: ReferenceError: validate is not defined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/AccUpdateMsg.php?aid=63109, line 1: TypeError: document.fbal is undefined
+JavaScript error: http://demo.guru99.com/v4/manager/DepositInput.php, line 1: TypeError: document.fbal.txtaccno is undefined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/WithdrawalInput.php, line 1: TypeError: document.fbal.txtaccno is undefined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/BalEnqInput.php, line 1: TypeError: document.fbal.txtaccno is undefined
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/deleteAccountInput.php, line 1: TypeError: document.fbal.txtaccno is undefined
+1561480043360	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+openRemotePrompt@resource://gre/modules/Prompter.jsm:508:17
+openPrompt@resource://gre/modules/Prompter.jsm:543:17
+confirm@resource://gre/modules/Prompter.jsm:647:14
+ConfirmDelete@http://demo.guru99.com/v4/JavaScript/test.js:730:11
+onsubmit@http://demo.guru99.com/v4/manager/deleteAccountInput.php:1:25
+event.synthesizeMouseAtPoint@chrome://marionette/content/event.js:202:14
+webdriverClickElement@chrome://marionette/content/interaction.js:183:11
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+JavaScript error: http://demo.guru99.com/v4/manager/deleteAccountInput.php, line 1: TypeError: document.fbal.txtaccno is undefined
+1561480051464	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:223:64
+openRemotePrompt@resource://gre/modules/Prompter.jsm:508:17
+openPrompt@resource://gre/modules/Prompter.jsm:543:17
+confirm@resource://gre/modules/Prompter.jsm:647:14
+ConfirmDelete@http://demo.guru99.com/v4/JavaScript/test.js:730:11
+onsubmit@http://demo.guru99.com/v4/manager/deleteAccountInput.php:1:25
+event.synthesizeMouseAtPoint@chrome://marionette/content/event.js:202:14
+webdriverClickElement@chrome://marionette/content/interaction.js:183:11
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+1561480057072	Marionette	INFO	Stopped listening on port 57481
+[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 15744, Chrome_ChildThread] WARNING: pipe error: 232: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 502
+[Child 15744, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 15744, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_c[Parent 11804, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 13760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1560988636/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 13760, Chrome_ChildThread] WARNING:[GPU 14860, Chrome_
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+Chil
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

@@ -392,6 +392,14 @@ public class AbstractPage {
 		return js.executeScript("arguments[0].click();", element);
 	}
 
+	public Object clickToElementByJS(WebDriver driver, String locator, String... values) {
+		locator = String.format(locator, (Object[]) values);
+		WebElement element = driver.findElement(By.xpath(locator));
+		// highlightElement(driver, xpathName);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript("arguments[0].click();", element);
+	}
+
 	public Object sendkeyToElementByJS(WebDriver driver, String xpathName, String value) {
 		WebElement element = driver.findElement(By.xpath(xpathName));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -403,7 +411,7 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
 	}
-	
+
 	public Object removeAttributeInDOM(WebDriver driver, String locator, String attribute, String... values) {
 		locator = String.format(locator, (Object[]) values);
 		WebElement element = driver.findElement(By.xpath(locator));
@@ -527,7 +535,12 @@ public class AbstractPage {
 
 	public void openMultiplePages(WebDriver driver, String pageName) {
 		waitForElementVisible(driver, com.bankguru.customers.AbstractPageUI.DYNAMIC_LINK, pageName);
-		clickToElement(driver, com.bankguru.customers.AbstractPageUI.DYNAMIC_LINK, pageName);
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, com.bankguru.customers.AbstractPageUI.DYNAMIC_LINK, pageName);
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, com.bankguru.customers.AbstractPageUI.DYNAMIC_LINK, pageName);
+		}
 	}
 
 	public void pressTab(WebDriver driver, String fieldName) {
@@ -551,7 +564,12 @@ public class AbstractPage {
 	}
 
 	public void clickToTextboxTextAreaButton(WebDriver driver, String fieldName) {
-		clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, fieldName);
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, fieldName);
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, fieldName);
+		}
 	}
 
 	public String getDynamicMessageField(WebDriver driver, String fieldName) {

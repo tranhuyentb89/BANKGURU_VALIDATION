@@ -21,6 +21,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class AbstractTest {
 	private WebDriver driver;
 	protected final Log log;
+	private final String workingDir = System.getProperty("user.dir");
 
 	protected AbstractTest() {
 		log = LogFactory.getLog(getClass());
@@ -29,17 +30,26 @@ public class AbstractTest {
 	protected WebDriver openMultiBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
 
-			WebDriverManager.firefoxdriver().version("0.24.0").setup();
+			WebDriverManager.firefoxdriver().setup();
+			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir + "\\FirefoxLog.txt");
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().version("2.46").setup();
-			driver = new ChromeDriver();
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--log-level=3");
+			options.addArguments("--silent");
+			options.addArguments("disable-infobars");
+			driver = new ChromeDriver(options);
 		} else if (browserName.equalsIgnoreCase("ie")) {
-			WebDriverManager.iedriver().version("").setup();
+			WebDriverManager.iedriver().arch32().setup();
 			driver = new InternetExplorerDriver();
 		} else if (browserName.equalsIgnoreCase("chromeheadless")) {
-			WebDriverManager.chromedriver().version("2.46").setup();
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--log-level=3");
+			options.addArguments("--silent");
+
 			options.addArguments("window-size=1366x768");
 			options.addArguments("headless");
 			driver = new ChromeDriver(options);
@@ -47,6 +57,13 @@ public class AbstractTest {
 		driver.get("http://demo.guru99.com/v4/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		return driver;
 	}
 
@@ -131,6 +148,7 @@ public class AbstractTest {
 			driver.manage().deleteAllCookies();
 			String cmd = "";
 			if (driver != null) {
+				driver.manage().deleteAllCookies();
 				driver.quit();
 			}
 			if (driver.toString().toLowerCase().contains("chrome")) {
@@ -154,30 +172,33 @@ public class AbstractTest {
 			System.out.println(e.getMessage());
 		}
 	}
+
 	public int getCurrentDay() {
 		DateTime now = DateTime.now();
 		System.out.println(now.getDayOfMonth());
 		return now.getDayOfMonth();
 	}
+
 	public long getCurrentMonth() {
 		DateTime now = DateTime.now();
 		long month = now.getMonthOfYear();
 		System.out.println(month);
 		return month;
 	}
+
 	public int getCurrentYear() {
 		DateTime now = DateTime.now();
 		return now.getYear();
 	}
-	
+
 	public String getLocalDate() {
 		final String DATE_FORMAT = "yyyy-MM-dd";
 		SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
 		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-		 
+
 		Calendar currentTime = Calendar.getInstance();
-		 
-		String timeStr = formatter.format(currentTime.getTime());  
+
+		String timeStr = formatter.format(currentTime.getTime());
 		return timeStr;
 	}
 }

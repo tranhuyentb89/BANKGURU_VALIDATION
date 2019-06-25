@@ -8,7 +8,7 @@ import com.bankguru.customers.RegisterPageUI;
 import commons.AbstractPage;
 import commons.PageFactoryManage;
 
-public class RegisterPageObjects extends AbstractPage{
+public class RegisterPageObjects extends AbstractPage {
 	public RegisterPageObjects(WebDriver mappingDriver) {
 		this.driver = mappingDriver;
 	}
@@ -22,7 +22,12 @@ public class RegisterPageObjects extends AbstractPage{
 
 	public void clickToLoginButton() {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON ,"btnLogin");
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
+		}
 	}
 
 	public String getUserIDInfo() {
