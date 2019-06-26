@@ -5,7 +5,7 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 	<test name="RUN ON FIREFOX">
-		<parameter name="browser" value="ie" />
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.bankguru.customers.Account_RegisterToSystem_Common" />
 			<class name="com.bankguru.payment.Payment" />
