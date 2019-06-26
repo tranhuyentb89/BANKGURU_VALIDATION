@@ -10,6 +10,7 @@ public class AbstractPageUI {
 	public static final String DYNAMIC_PAGE_TITLE="//p[@class='heading3']";
 	public static final String DYNAMIC_DROPDOWN ="//select[@name='%s']";
 	public static final String DYNAMIC_TEXTBOX_TEXTAREA_BUTTON_TEST ="(//textarea|//input)[@name='txtcid']";
+	public static final String DYNAMIC_TEXT_DISPLAYED="//p[text()='%s']";
 
 //	public static final String ADDRESS_DYNAMIC_MSG ="//label[@id='message3' and text()='%s']";
 //	public static final String CUS_ID_DYNAMIC_MSG="//label[@id='message14' and text()='%s']";

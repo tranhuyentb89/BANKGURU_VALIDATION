@@ -1,21 +1,10 @@
-2019-06-26 00:47:29,290 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
-2019-06-26 00:47:29,635 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
-2019-06-26 00:47:29,637 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
-2019-06-26 00:47:29,946 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Input email and click to Login button
-2019-06-26 00:47:33,640 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 06: Get username and password
-2019-06-26 00:47:47,462 INFO  com.bankguru.payment.Payment - Login - Step 04: Click to login button
-2019-06-26 00:47:47,760 INFO  com.bankguru.payment.Payment - New Customer - Step 01: Open new customer page
-2019-06-26 00:47:50,967 INFO  com.bankguru.payment.Payment - New Customer - Step 02: Input info to name field
-2019-06-26 00:47:53,398 INFO  com.bankguru.payment.Payment - New Customer - Step 03: Input info to dob field
-2019-06-26 00:47:54,668 INFO  com.bankguru.payment.Payment - New Customer - Step 04: Input info to addr field
-2019-06-26 00:47:55,818 INFO  com.bankguru.payment.Payment - New Customer - Step 05: Input info to city field
-2019-06-26 00:47:56,710 INFO  com.bankguru.payment.Payment - New Customer - Step 06: Input info to state field
-2019-06-26 00:47:57,631 INFO  com.bankguru.payment.Payment - New Customer - Step 07: Input info to pinno field
-2019-06-26 00:47:58,481 INFO  com.bankguru.payment.Payment - New Customer - Step 08: Input info to telephoneno field
-2019-06-26 00:47:59,340 INFO  com.bankguru.payment.Payment - New Customer - Step 09: Input info to emailid field
-2019-06-26 00:48:00,303 INFO  com.bankguru.payment.Payment - New Customer - Step 10: Input info to password field
-2019-06-26 00:48:01,209 INFO  com.bankguru.payment.Payment - New Customer - Step 11: Click sub button
-2019-06-26 00:48:01,824 INFO  com.bankguru.payment.Payment - Actual = Add New Customer
-2019-06-26 00:48:01,824 INFO  com.bankguru.payment.Payment - Expected = Customer Registered Successfully!!!
-2019-06-26 00:48:01,824 INFO  com.bankguru.payment.Payment - Compare value = false
-2019-06-26 00:48:01,824 INFO  com.bankguru.payment.Payment - ===FAILED===
+2019-06-26 09:46:38,375 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
+2019-06-26 09:46:38,751 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
+2019-06-26 09:46:38,753 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
+2019-06-26 09:46:39,020 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Input email and click to Login button
+2019-06-26 09:46:41,621 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 06: Get username and password
+2019-06-26 09:46:53,851 INFO  com.bankguru.payment.Payment - Login - Step 04: Click to login button
+2019-06-26 09:46:53,997 INFO  com.bankguru.payment.Payment - New Customer - Step 01: Open new customer page
+2019-06-26 09:46:56,869 INFO  com.bankguru.payment.Payment - New Customer - Step 02: Input info to name field
+2019-06-26 09:47:05,465 INFO  com.bankguru.payment.Payment - New Customer - Step 11: Click sub button
+2019-06-26 09:47:07,850 INFO  com.bankguru.payment.Payment - ===PASSED==

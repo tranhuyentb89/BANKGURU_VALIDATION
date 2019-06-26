@@ -582,9 +582,9 @@ public class AbstractPage {
 		return getTextElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE, fielName);
 	}
 
-	public String getPageTitleSuccess(WebDriver driver) {
-		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE);
-		return getTextElement(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE);
+	public String getPageTitleSuccess(WebDriver driver, String dynamicValue) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE, dynamicValue);
+		return getTextElement(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE, dynamicValue);
 	}
 
 	public String getDynamicTextInTable(WebDriver driver, String fieldName) {

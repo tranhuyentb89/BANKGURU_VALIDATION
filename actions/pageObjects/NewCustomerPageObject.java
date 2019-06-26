@@ -2,6 +2,8 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import com.bankguru.customers.AbstractPageUI;
+
 import commons.AbstractPage;
 
 public class NewCustomerPageObject extends AbstractPage{
@@ -11,6 +13,10 @@ public class NewCustomerPageObject extends AbstractPage{
 	}
 
 	WebDriver driver;
+
+	public boolean isDynamicSuccessMessageDisplayed(WebDriver driver2, String dynamicValue) {
+		return isControlDisplayed(driver2, AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
+	}
 
 //	public boolean isEmptyMessageDisplayed() {
 //		return isControlDisplayed(driver, AbstractPageUI.CUSTOMER_NAME_DYNAMIC_MSG,Constants.CUS_NAME_BLANK_MSG);
