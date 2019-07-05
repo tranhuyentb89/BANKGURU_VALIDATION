@@ -27,26 +27,9 @@ import pageObjects.WithDrawPageObject;
 
 public class Payment extends AbstractTest {
 	WebDriver driver;
-	private String customerName = "Tran thi huyen";
-	private String dateOfBirth = "01/01/1989";
-	private String address = "PO Box 9118331 Duis Avenue";
-	private String city = "Tampa";
-	private String state = "FL";
-	private String pin = "466250";
-	private String mobile = "478822211";
-	private String email = "tranhuyentb89" + ramdomNumber() + "@gmail.com";
-	private String passwordAddNew = "123456";
-	private String amountToDeposit = "5000";
-	private String today;
-
-	private String addressEdit = "1883 Cursus Avenue";
-	private String cityEdit = "Houston";
-	private String stateEdit = "Texas";
-	private String pinEdit = "166455";
-	private String mobileEdit = "3838819198";
-	private String emailEdit = "testNG@gmail.com";
-	String currentAccountValue = "Current";
-	String currentAmount = "50000", SavevingsAmount = "10000";
+	private String customerName, dateOfBirth, address, city, state, pin, mobile, email, passwordAddNew, addressEdit,
+			cityEdit, stateEdit, pinEdit, mobileEdit, emailEdit, today;
+	String currentAmount, SavevingsAmount, amountWithDraw, amountTransfer, amountToDeposit, currentAccountValue;
 	public static String cusID, payerAccountID, payeeAccountID;
 
 	LoginPageObjects loginPage;
@@ -67,21 +50,43 @@ public class Payment extends AbstractTest {
 	public void beforeClass(String browserName) {
 		driver = openMultiBrowser(browserName);
 		loginPage = PageFactoryManage.getLoginPage(driver);
+
+		log.info("Precondition- Step 01: Input Username and Password ");
 		loginPage.inputToUserIDTextbox(Account_RegisterToSystem_Common.USER_ID);
 		loginPage.inputToPasswordTextbox(Account_RegisterToSystem_Common.PASSWORD);
-		log.info("Login - Step 04: Click to login button");
+		log.info("Precondition- Step 02: Click to login button");
 		homePage = loginPage.clickToLoginButton();
 		today = getLocalDate();
 		currentAmount = "50000";
+		SavevingsAmount = "10000";
+		amountWithDraw = "15000";
+		amountTransfer = "10000";
+		amountToDeposit = "5000";
+		customerName = "Tran thi huyen";
+		dateOfBirth = "01/01/1989";
+		address = "PO Box 9118331 Duis Avenue";
+		city = "Tampa";
+		state = "FL";
+		pin = "466250";
+		mobile = "478822211";
+		email = "tranhuyentb89" + ramdomNumber() + "@gmail.com";
+		passwordAddNew = "123456";
+		addressEdit = "1883 Cursus Avenue";
+		cityEdit = "Houston";
+		stateEdit = "Texas";
+		pinEdit = "166455";
+		mobileEdit = "3838819198";
+		emailEdit = "testNG@gmail.com";
+		currentAccountValue = "Current";
 	}
 
 	@Test
 	public void TC_01_CreateNewCustomerAccountAndCheckSuccessMessage() {
-		log.info("New Customer - Step 01: Open new customer page");
+		log.info("TC01_Create New Customer- Step 01: Open new customer page");
 		homePage.openMultiplePages(driver, "New Customer");
 		newCustomerPage = PageFactoryManage.getNewCustomerPage(driver);
 
-		log.info("New Customer - Step 02: Input info to name field");
+		log.info("TC01_Create New Customer- Step 02: Input info to name field");
 		newCustomerPage.inputToDynamicField(driver, customerName, "name");
 		newCustomerPage.inputToDynamicField(driver, dateOfBirth, "dob");
 		newCustomerPage.inputToDynamicField(driver, address, "addr");
@@ -92,35 +97,49 @@ public class Payment extends AbstractTest {
 		newCustomerPage.inputToDynamicField(driver, email, "emailid");
 		newCustomerPage.inputToDynamicField(driver, passwordAddNew, "password");
 
-		log.info("New Customer - Step 11: Click sub button");
+		log.info("TC01_Create New Customer- Step 03: Click sub button");
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
+
+		log.info("TC01_Create New Customer- Step 04: Sleep 30s");
 		newCustomerPage.sleepInSeconds(30);
 
-		verifyTrue(newCustomerPage.isDynamicSuccessMessageDisplayed(driver,"Customer Registered Successfully!!!" ));
-		//verifyEquals(newCustomerPage.getPageTitleSuccess(driver), "Customer Registered Successfully!!!");
+		log.info("TC01_Create New Customer- Step 05: Verify message 'Customer Registered Successfully' is displayed");
+		verifyTrue(newCustomerPage.isDynamicSuccessMessageDisplayed(driver, "Customer Registered Successfully!!!"));
 		cusID = newCustomerPage.getDynamicTextInTable(driver, "Customer ID");
-		System.out.println(cusID);
 	}
 
-	// @Test
+	@Test
 	public void TC_02_EditCustomerSuccessAndCheck() {
+
+		log.info("TC_02_EditCustomer- Step 01: Open Edit Customer page");
 		homePage.openMultiplePages(driver, "Edit Customer");
 		editCustomerPage = PageFactoryManage.getEditCustomerPage(driver);
+
+		log.info("TC_02_EditCustomer- Step 02: Input Customer ID");
 		editCustomerPage.inputToDynamicField(driver, Payment.cusID, "cusid");
+
+		log.info("TC_02_EditCustomer- Step 03: Click to Submit button");
 		editCustomerPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
+
+		log.info("TC_02_EditCustomer- Step 04: Input Edit value to all field");
 		editCustomerPage.inputToDynamicField(driver, addressEdit, "addr");
 		editCustomerPage.inputToDynamicField(driver, cityEdit, "city");
 		editCustomerPage.inputToDynamicField(driver, stateEdit, "state");
 		editCustomerPage.inputToDynamicField(driver, pinEdit, "pinno");
 		editCustomerPage.inputToDynamicField(driver, mobileEdit, "telephoneno");
 		editCustomerPage.inputToDynamicField(driver, emailEdit, "emailid");
-		// editCustomerPage.clickToElement(driver, locator, values);
+
+		log.info("TC_02_EditCustomer- Step 05: Click to Submit button");
+		editCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
+
+		log.info("TC_02_EditCustomer- Step 06: Verify message 'Customer details updated Successfully!!!' is displayed");
+		verifyTrue(
+				newCustomerPage.isDynamicSuccessMessageDisplayed(driver, "Customer details updated Successfully!!!"));
 
 	}
 
-	// @Test
+	@Test(invocationCount =2 )
 	public void TC_03_CreateNewAccountSuccessfull() {
-		log.info("-------------------------CREATE ACCOUNT 01----------------------------------------");
 		homePage.openMultiplePages(driver, "New Account");
 		newAccountPage = PageFactoryManage.getNewAccountPage(driver);
 
@@ -129,10 +148,9 @@ public class Payment extends AbstractTest {
 		newAccountPage.inputToDynamicField(driver, currentAmount, "inideposit");
 		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
 
-		// Verify info input and displayed is equal
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer ID"), cusID);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer Name"), customerName);
-		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), email);
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), emailEdit);
 
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Account Type"), currentAccountValue);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Date of Opening"), today);
@@ -159,7 +177,7 @@ public class Payment extends AbstractTest {
 		payeeAccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
 	}
 
-	// @Test
+	//@Test
 	public void TC_04_EditAccount_ChangeToOtherType() {
 		homePage.openMultiplePages(driver, "Edit Account");
 		editAccountPage = PageFactoryManage.getEditAccountPage(driver);
@@ -195,13 +213,13 @@ public class Payment extends AbstractTest {
 
 		log.info("Payment 06 - Step 01: Input data to withdraw form");
 		withdrawPage.inputToDynamicField(driver, payerAccountID, "accountno");
-		withdrawPage.inputToDynamicField(driver, "15000", "ammount");
+		withdrawPage.inputToDynamicField(driver, amountWithDraw, "ammount");
 		withdrawPage.inputToDynamicField(driver, "WITHDRAW", "desc");
 		withdrawPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
 		log.info("Payment 06 - Step 02: Verify info input is correct");
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Account No"), payerAccountID);
-		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Amount Debited"), "15000");
+		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Amount Debited"), amountWithDraw);
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Current Balance"), "40000");
 	}
 
@@ -213,14 +231,14 @@ public class Payment extends AbstractTest {
 		log.info("Payment 07 - Step 01: Input data to Transfer form");
 		fundTransferPage.inputToDynamicField(driver, payerAccountID, "payersaccount");
 		fundTransferPage.inputToDynamicField(driver, payeeAccountID, "payeeaccount");
-		fundTransferPage.inputToDynamicField(driver, "10000", "ammount");
+		fundTransferPage.inputToDynamicField(driver, amountTransfer, "ammount");
 		fundTransferPage.inputToDynamicField(driver, "Transfer", "desc");
 		fundTransferPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
 		log.info("Payment 08 - Step 02: Verify info input is correct");
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "From Account Number"), payerAccountID);
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "To Account Number"), payeeAccountID);
-		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "Amount"), "10000");
+		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "Amount"), amountTransfer);
 	}
 
 	// @Test
@@ -262,15 +280,10 @@ public class Payment extends AbstractTest {
 		deleteAccountPage.sleepInSeconds(3000);
 		verifyEquals(deleteAccountPage.gettextAlert(driver), "Account does not exist");
 		deleteAccountPage.acceptAlert(driver);
+	}
 
-		//
-		// homePage.openMultiplePages(driver, "Delete Account");
-		// deleteAccountPage = PageFactoryManage.getDeleteAccountPage(driver);
-		//
-		// deleteAccountPage.inputToDynamicField(driver, payeeAccountID, "accountno");
-		// deleteAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
-		// deleteAccountPage.acceptAlert(driver);
-		// deleteAccountPage.acceptAlert(driver);
+	// @Test
+	public void TC_10_DeleteCustomerSuccessfully() {
 	}
 
 	@AfterClass

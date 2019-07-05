@@ -1,10 +1,68 @@
-2019-06-26 09:46:38,375 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
-2019-06-26 09:46:38,751 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
-2019-06-26 09:46:38,753 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
-2019-06-26 09:46:39,020 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Input email and click to Login button
-2019-06-26 09:46:41,621 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 06: Get username and password
-2019-06-26 09:46:53,851 INFO  com.bankguru.payment.Payment - Login - Step 04: Click to login button
-2019-06-26 09:46:53,997 INFO  com.bankguru.payment.Payment - New Customer - Step 01: Open new customer page
-2019-06-26 09:46:56,869 INFO  com.bankguru.payment.Payment - New Customer - Step 02: Input info to name field
-2019-06-26 09:47:05,465 INFO  com.bankguru.payment.Payment - New Customer - Step 11: Click sub button
-2019-06-26 09:47:07,850 INFO  com.bankguru.payment.Payment - ===PASSED==
+2019-07-05 17:20:36,145 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
+2019-07-05 17:20:36,246 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
+2019-07-05 17:20:36,247 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
+2019-07-05 17:20:38,728 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Input email and click to Login button
+2019-07-05 17:20:40,205 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 06: Get username and password
+2019-07-05 17:20:48,496 INFO  com.bankguru.payment.Payment - Precondition- Step 01: Input Username and Password 
+2019-07-05 17:20:48,721 INFO  com.bankguru.payment.Payment - Precondition- Step 02: Click to login button
+2019-07-05 17:20:51,315 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 01: Open new customer page
+2019-07-05 17:20:52,403 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 02: Input info to name field
+2019-07-05 17:20:53,779 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 03: Click sub button
+2019-07-05 17:20:55,547 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 04: Sleep 30s
+2019-07-05 17:20:55,579 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 05: Verify message 'Customer Registered Successfully' is displayed
+2019-07-05 17:20:55,641 INFO  com.bankguru.payment.Payment - ===PASSED==
+2019-07-05 17:20:55,700 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 01: Open Edit Customer page
+2019-07-05 17:20:56,954 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 02: Input Customer ID
+2019-07-05 17:20:57,137 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 03: Click to Submit button
+2019-07-05 17:20:58,194 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 04: Input Edit value to all field
+2019-07-05 17:20:59,089 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 05: Click to Submit button
+2019-07-05 17:21:00,498 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 06: Verify message 'Customer details updated Successfully!!!' is displayed
+2019-07-05 17:21:00,577 INFO  com.bankguru.payment.Payment - ===PASSED==
+2019-07-05 17:21:03,261 INFO  com.bankguru.payment.Payment - Actual = 31581
+2019-07-05 17:21:03,261 INFO  com.bankguru.payment.Payment - Expected = 31581
+2019-07-05 17:21:03,261 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:03,261 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:03,315 INFO  com.bankguru.payment.Payment - Actual = Tran thi huyen
+2019-07-05 17:21:03,315 INFO  com.bankguru.payment.Payment - Expected = Tran thi huyen
+2019-07-05 17:21:03,315 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:03,315 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:03,422 INFO  com.bankguru.payment.Payment - Actual = testNG@gmail.com
+2019-07-05 17:21:03,422 INFO  com.bankguru.payment.Payment - Expected = testNG@gmail.com
+2019-07-05 17:21:03,422 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:03,422 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:03,476 INFO  com.bankguru.payment.Payment - Actual = Current
+2019-07-05 17:21:03,476 INFO  com.bankguru.payment.Payment - Expected = Current
+2019-07-05 17:21:03,476 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:03,476 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:03,521 INFO  com.bankguru.payment.Payment - Actual = 2019-07-05
+2019-07-05 17:21:03,521 INFO  com.bankguru.payment.Payment - Expected = 2019-07-05
+2019-07-05 17:21:03,521 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:03,521 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:03,571 INFO  com.bankguru.payment.Payment - Actual = 50000
+2019-07-05 17:21:03,571 INFO  com.bankguru.payment.Payment - Expected = 50000
+2019-07-05 17:21:03,571 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:03,571 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:05,961 INFO  com.bankguru.payment.Payment - Actual = 31581
+2019-07-05 17:21:05,961 INFO  com.bankguru.payment.Payment - Expected = 31581
+2019-07-05 17:21:05,961 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:05,961 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:06,007 INFO  com.bankguru.payment.Payment - Actual = Tran thi huyen
+2019-07-05 17:21:06,007 INFO  com.bankguru.payment.Payment - Expected = Tran thi huyen
+2019-07-05 17:21:06,007 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:06,007 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:06,048 INFO  com.bankguru.payment.Payment - Actual = testNG@gmail.com
+2019-07-05 17:21:06,048 INFO  com.bankguru.payment.Payment - Expected = testNG@gmail.com
+2019-07-05 17:21:06,048 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:06,049 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:06,092 INFO  com.bankguru.payment.Payment - Actual = Current
+2019-07-05 17:21:06,092 INFO  com.bankguru.payment.Payment - Expected = Current
+2019-07-05 17:21:06,092 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:06,092 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:06,133 INFO  com.bankguru.payment.Payment - Actual = 2019-07-05
+2019-07-05 17:21:06,133 INFO  com.bankguru.payment.Payment - Expected = 2019-07-05
+2019-07-05 17:21:06,133 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:06,133 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-05 17:21:06,178 INFO  com.bankguru.payment.Payment - Actual = 50000
+2019-07-05 17:21:06,178 INFO  com.bankguru.payment.Payment - Expected = 50000
+2019-07-05 17:21:06,178 INFO  com.bankguru.payment.Payment - Compare value = true
+2019-07-05 17:21:06,178 INFO  com.bankguru.payment.Payment - ===PASSED===
