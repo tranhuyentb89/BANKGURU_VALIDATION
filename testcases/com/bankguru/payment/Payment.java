@@ -27,26 +27,10 @@ import pageObjects.WithDrawPageObject;
 
 public class Payment extends AbstractTest {
 	WebDriver driver;
-	private String customerName;
-	private String dateOfBirth = "01/01/1989";
-	private String address = "PO Box 9118331 Duis Avenue";
-	private String city = "Tampa";
-	private String state = "FL";
-	private String pin = "466250";
-	private String mobile = "478822211";
-	private String email = "tranhuyentb89" + ramdomNumber() + "@gmail.com";
-	private String passwordAddNew = "123456";
-	private String amountToDeposit = "5000";
-	private String today;
-
-	private String addressEdit = "1883 Cursus Avenue";
-	private String cityEdit = "Houston";
-	private String stateEdit = "Texas";
-	private String pinEdit = "166455";
-	private String mobileEdit = "3838819198";
-	private String emailEdit = "testNG@gmail.com";
+	private String customerName, dateOfBirth, address, city, state, pin, mobile, email, passwordAddNew, today,
+			addressEdit, cityEdit, stateEdit, pinEdit, mobileEdit, emailEdit;
+	private String amountToDeposit,currentAmount, SavevingsAmount ;
 	String currentAccountValue = "Current";
-	String currentAmount = "50000", SavevingsAmount = "10000";
 	public static String cusID, payerAccountID, payeeAccountID;
 
 	LoginPageObjects loginPage;
@@ -74,6 +58,24 @@ public class Payment extends AbstractTest {
 		today = getLocalDate();
 		currentAmount = "50000";
 		customerName = "Tran thi huyen";
+		dateOfBirth = "01/01/1989";
+		address = "PO Box 9118331 Duis Avenue";
+		city = "Tampa";
+		state = "FL";
+		pin = "466250";
+		mobile = "478822211";
+		email = "tranhuyentb89" + ramdomNumber() + "@gmail.com";
+		passwordAddNew = "123456";
+		addressEdit = "1883 Cursus Avenue";
+		cityEdit = "Houston";
+		stateEdit = "Texas";
+		pinEdit = "166455";
+		mobileEdit = "3838819198";
+		emailEdit = "testNG@gmail.com";
+		
+		amountToDeposit = "5000";
+		currentAmount = "50000";
+		SavevingsAmount = "10000";
 	}
 
 	@Test
@@ -97,8 +99,8 @@ public class Payment extends AbstractTest {
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
 		newCustomerPage.sleepInSeconds(30);
 
-		verifyTrue(newCustomerPage.isDynamicSuccessMessageDisplayed(driver,"Customer Registered Successfully!!!" ));
-		//verifyEquals(newCustomerPage.getPageTitleSuccess(driver), "Customer Registered Successfully!!!");
+		verifyTrue(newCustomerPage.isDynamicSuccessMessageDisplayed(driver, "Customer Registered Successfully!!!"));
+		// verifyEquals(newCustomerPage.getPageTitleSuccess(driver), "Customer Registered Successfully!!!");
 		cusID = newCustomerPage.getDynamicTextInTable(driver, "Customer ID");
 		System.out.println(cusID);
 	}
