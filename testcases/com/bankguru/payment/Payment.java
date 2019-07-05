@@ -27,7 +27,7 @@ import pageObjects.WithDrawPageObject;
 
 public class Payment extends AbstractTest {
 	WebDriver driver;
-	private String customerName = "Tran thi huyen";
+	private String customerName;
 	private String dateOfBirth = "01/01/1989";
 	private String address = "PO Box 9118331 Duis Avenue";
 	private String city = "Tampa";
@@ -73,6 +73,7 @@ public class Payment extends AbstractTest {
 		homePage = loginPage.clickToLoginButton();
 		today = getLocalDate();
 		currentAmount = "50000";
+		customerName = "Tran thi huyen";
 	}
 
 	@Test
