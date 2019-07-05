@@ -316,7 +316,6 @@ public class AbstractPage {
 	}
 
 	public void waitToElementInvisible(WebDriver driver, String locator) {
-		// Date date = new Date();
 		By byLocator = By.xpath(locator);
 		WebDriverWait waitExplicit = new WebDriverWait(driver, Constants.SHORT_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
@@ -328,11 +327,7 @@ public class AbstractPage {
 		// date.toString());
 		overideTimeout(driver, Constants.SHORT_TIMEOUT);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
-		// System.out.println("Element size = : " + elements.size());
 		if (elements.size() == 0) {
-			// System.out.println("Element khong co trong DOM");
-			// System.out.println("End time to check control undisplayed = " + new
-			// Date().toString());
 			overideTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
 		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
@@ -476,32 +471,6 @@ public class AbstractPage {
 		explicit.until(ExpectedConditions.alertIsPresent());
 	}
 
-	// open page
-	// public ChangePasswordPageObject openChangePasswordPage(WebDriver driver) {
-	// waitToElementVisible(driver,
-	// com.bankguru.customers.AbstractPageUI.CHANGE_PASSWORD_LINK);
-	// clickToElement(driver, AbstractPageUI.CHANGE_PASSWORD_LINK);
-	// return PageFactoryManage.getChangPasswordPage(driver);
-	// }
-	//
-	// public DepositPageObject openDepositPage(WebDriver driver) {
-	// waitToElementVisible(driver, AbstractPageUI.DEPOSIT_LINK);
-	// clickToElement(driver, AbstractPageUI.DEPOSIT_LINK);
-	// return PageFactoryManage.getDepositPage(driver);
-	// }
-	//
-	// public NewAccountPageObject openNewAccountPage(WebDriver driver) {
-	// waitToElementVisible(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
-	// clickToElement(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
-	// return PageFactoryManage.getNewAccountPage(driver);
-	// }
-	//
-	// public NewCustomerPageObject openNewCustomerPage(WebDriver driver) {
-	// waitToElementVisible(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
-	// clickToElement(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
-	// return PageFactoryManage.getNewCustomerPage(driver);
-	// }
-
 	public AbstractPage openMultiplePage(WebDriver driver, String pageName) {
 		waitForElementVisible(driver, com.bankguru.customers.AbstractPageUI.DYNAMIC_LINK, pageName);
 		clickToElement(driver, com.bankguru.customers.AbstractPageUI.DYNAMIC_LINK, pageName);
@@ -558,7 +527,6 @@ public class AbstractPage {
 		try {
 			Thread.sleep(1);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

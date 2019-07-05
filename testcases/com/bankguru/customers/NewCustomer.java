@@ -41,26 +41,26 @@ public class NewCustomer extends AbstractTest {
 
 	@Test
 	public void TC_02_LoginWithAboveInfo() {
-//		log.info("Login - Step 01: Open login form");
-//		loginPage = registerPage.openLoginPage(loginPageUrl);
-//		// loginPage = new LoginPageObject(driver);
-//
-		log.info("Login - Step 02: Verify login form dislayed");
+		log.info("Login - Step 01: Verify login form dislayed");
 		verifyTrue(loginPage.isLoginFormDisplayed());
 
-		log.info("Login - Step 03: Input username and password");
+		log.info("Login - Step 02: Input username and password");
 		loginPage.inputToUserIDTextbox(Account_RegisterToSystem_Common.USER_ID);
 		loginPage.inputToPasswordTextbox(Account_RegisterToSystem_Common.PASSWORD);
 
-		log.info("Login - Step 04: Click to login button");
+		log.info("Login - Step 03: Click to login button");
 		homePage = loginPage.clickToLoginButton();
 
 	}
 
 	@Test
 	public void TC_03_VerifyEmptyValueAtNewCustomerForm() {
+		
+		log.info("TC_03_VerifyEmptyValueAtNewCustomerForm- Step 01: Open New Customer page ");
 		homePage.openMultiplePages(driver, "New Customer");
 		newCustomerPage = PageFactoryManage.getNewCustomerPage(driver);
+		
+		log.info("TC_03_VerifyEmptyValueAtNewCustomerForm- Step 02: Click to all field ");
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "name");
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "dob");
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "addr");
@@ -72,7 +72,7 @@ public class NewCustomer extends AbstractTest {
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "password");
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "emailid");
 
-		// Verify message displayed
+		log.info("TC_03_VerifyEmptyValueAtNewCustomerForm- Step 03: Verify Empty message is displayed ");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "Customer Name"), "Customer name must not be blank");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "Date of Birth"), "Date Field must not be blank");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "Address"), "Address Field must not be blank");
@@ -82,19 +82,16 @@ public class NewCustomer extends AbstractTest {
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "Mobile Number"), "Mobile no must not be blank");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "E-mail"), "Email-ID must not be blank");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "Password"), "Password must not be blank");
-
 	}
 
 	@Test
 	public void TC_04_VerifyNotInputNumericNewCustomerForm() {
 		homePage.openMultiplePages(driver, "New Customer");
 		newCustomerPage = PageFactoryManage.getNewCustomerPage(driver);
-		// Input numeric value into name, city and state field
 		newCustomerPage.inputToDynamicField(driver, numericValue, "name");
 		newCustomerPage.inputToDynamicField(driver, numericValue, "city");
 		newCustomerPage.inputToDynamicField(driver, numericValue, "state");
 
-		// Verify message cannot input numeric displayed
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "Customer Name"), "Numbers are not allowed");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "City"), "Numbers are not allowed");
 		verifyEquals(newCustomerPage.getDynamicMessageField(driver, "State"), "Numbers are not allowed");
@@ -196,8 +193,6 @@ public class NewCustomer extends AbstractTest {
 	
 	@Test
 	public void TC_12_EditCustomerPage_VerifyEmptyValue() {
-//		homePage.openMultiplePages(driver, "Edit Customer");
-//		editCustomerPage = PageFactoryManage.getEditCustomerPage(driver);
 		editCustomerPage.clearValueOfTextboxAreabox(driver, "addr");
 		editCustomerPage.clearValueOfTextboxAreabox(driver, "city");
 		editCustomerPage.clearValueOfTextboxAreabox(driver, "state");

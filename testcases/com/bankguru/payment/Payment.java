@@ -101,6 +101,7 @@ public class Payment extends AbstractTest {
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
 		newCustomerPage.sleepInSeconds(30);
 
+		log.info("TC_01_CreateNewCustomer - Step 04: Verify Customer Registered Successfully");
 		verifyTrue(newCustomerPage.isDynamicSuccessMessageDisplayed(driver, "Customer Registered Successfully!!!"));
 		cusID = newCustomerPage.getDynamicTextInTable(driver, "Customer ID");
 	}
@@ -145,11 +146,22 @@ public class Payment extends AbstractTest {
 		log.info("TC_03 Create New Account - Step 03: Click To submit button");
 		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
 
+		log.info("TC_03 Create New Account - Step 04: Verify Customer ID is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer ID"), cusID);
+		
+		log.info("TC_03 Create New Account - Step 05: Verify Customer Name is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer Name"), customerName);
+		
+		log.info("TC_03 Create New Account - Step 06: Verify Email is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), emailEdit);
+		
+		log.info("TC_03 Create New Account - Step 07: Verify Account Type is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Account Type"), currentAccountValue);
+		
+		log.info("TC_03 Create New Account - Step 08: Verify Date of Opening is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Date of Opening"), today);
+		
+		log.info("TC_03 Create New Account - Step 09: Verify Current Amount is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Current Amount"), currentAmount);
 		payerAccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
 
@@ -165,11 +177,23 @@ public class Payment extends AbstractTest {
 
 		log.info("TC_03 Create New Account - Step 03: Click To submit button");
 		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
+		
+		log.info("TC_03 Create New Account - Step 04: Verify Customer ID is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer ID"), cusID);
+		
+		log.info("TC_03 Create New Account - Step 05: Verify Customer Name is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer Name"), customerName);
+		
+		log.info("TC_03 Create New Account - Step 06: Verify Email is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), emailEdit);
+		
+		log.info("TC_03 Create New Account - Step 07: Verify Account Type is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Account Type"), currentAccountValue);
+		
+		log.info("TC_03 Create New Account - Step 08: Verify Date of Opening is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Date of Opening"), today);
+		
+		log.info("TC_03 Create New Account - Step 09: Verify Current Amount is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Current Amount"), SavevingsAmount);
 		payeeAccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
 	}
@@ -188,6 +212,8 @@ public class Payment extends AbstractTest {
 
 		log.info("TC_04 Edit Account - Step 03: Click to submit button");
 		editAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
+		
+		log.info("TC_04 Edit Account - Step 04: Verify Change Account Type is success");
 		verifyEquals(editAccountPage.getDynamicTextInTable(driver, "Account Type"), "Savings");
 	}
 
@@ -206,8 +232,13 @@ public class Payment extends AbstractTest {
 		log.info("TC_05 Deposit - Step 03: Click to submit button");
 		depositPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
+		log.info("TC_05 Deposit - Step 04: Verify Account No is matching");
 		verifyEquals(depositPage.getDynamicTextInTable(driver, "Account No"), payerAccountID);
+		
+		log.info("TC_05 Deposit - Step 05: Verify Amount to deposit is matching with inputed value");
 		verifyEquals(depositPage.getDynamicTextInTable(driver, "Amount Credited"), amountToDeposit);
+		
+		log.info("TC_05 Deposit - Step 06: Verify Current balance is matching");
 		verifyEquals(depositPage.getDynamicTextInTable(driver, "Current Balance"), "55000");
 	}
 
@@ -226,8 +257,13 @@ public class Payment extends AbstractTest {
 		log.info("TC_06 WithDraw - Step 03: Click to submit button");
 		withdrawPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
+		log.info("TC_06 WithDraw - Step 04: Verify Account No is matched");
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Account No"), payerAccountID);
+		
+		log.info("TC_06 WithDraw - Step 04: Verify amount withdraw is matched");
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Amount Debited"), amountToWithDraw);
+		
+		log.info("TC_06 WithDraw - Step 04: Verify Current Balance is matched");
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Current Balance"), "40000");
 	}
 
@@ -247,12 +283,17 @@ public class Payment extends AbstractTest {
 		log.info("TC_07 Transfer - Step 03: Click to submit button");
 		fundTransferPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
+		log.info("TC_07 Transfer - Step 04: Verify Account Number is matched");
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "From Account Number"), payerAccountID);
+		
+		log.info("TC_07 Transfer - Step 05: Verify PayeeAccount is matched");
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "To Account Number"), payeeAccountID);
+		
+		log.info("TC_07 Transfer - Step 06: verify Amount is matched");
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "Amount"), amountToTransfer);
 	}
 
-	@Test
+	//@Test
 	public void TC_08_CheckCurrentAmount() {
 
 		log.info("TC_08 Transfer - Step 01: Open Balance Enquiry Page");
@@ -270,7 +311,7 @@ public class Payment extends AbstractTest {
 
 	}
 
-	@Test
+	//@Test
 	public void TC_09_DeleteAllAccountOfCustomer() {
 
 		log.info("TC_09 DeleteAccount - Step 01: Open Delete Account page");
@@ -314,7 +355,7 @@ public class Payment extends AbstractTest {
 		deleteAccountPage.acceptAlert(driver);
 	}
 
-	@Test
+	//@Test
 	public void TC_10_deleteCustomerSuccessfull() {
 		log.info("TC_10 Delete Customer - Step 01: Open Delete Customer page");
 		homePage.openMultiplePages(driver, "Delete Customer");
