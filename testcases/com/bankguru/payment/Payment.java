@@ -27,9 +27,9 @@ import pageObjects.WithDrawPageObject;
 
 public class Payment extends AbstractTest {
 	WebDriver driver;
-	private String customerName, dateOfBirth, address, city, state, pin, mobile, email, passwordAddNew, today,
-			addressEdit, cityEdit, stateEdit, pinEdit, mobileEdit, emailEdit;
-	private String amountToDeposit,currentAmount, SavevingsAmount ;
+	private String customerName, dateOfBirth, address, city, state, pin, mobile, email, passwordAddNew, today, addressEdit, cityEdit, stateEdit,
+			pinEdit, mobileEdit, emailEdit;
+	private String amountToDeposit, currentAmount, SavevingsAmount;
 	String currentAccountValue = "Current";
 	public static String cusID, payerAccountID, payeeAccountID;
 
@@ -72,7 +72,7 @@ public class Payment extends AbstractTest {
 		pinEdit = "166455";
 		mobileEdit = "3838819198";
 		emailEdit = "testNG@gmail.com";
-		
+
 		amountToDeposit = "5000";
 		currentAmount = "50000";
 		SavevingsAmount = "10000";
@@ -80,11 +80,11 @@ public class Payment extends AbstractTest {
 
 	@Test
 	public void TC_01_CreateNewCustomerAccountAndCheckSuccessMessage() {
-		log.info("New Customer - Step 01: Open new customer page");
+		log.info("TC_01_CreateNewCustomer - Step 01: Open new customer page");
 		homePage.openMultiplePages(driver, "New Customer");
 		newCustomerPage = PageFactoryManage.getNewCustomerPage(driver);
 
-		log.info("New Customer - Step 02: Input info to name field");
+		log.info("TC_01_CreateNewCustomer - Step 02: Input info to all field");
 		newCustomerPage.inputToDynamicField(driver, customerName, "name");
 		newCustomerPage.inputToDynamicField(driver, dateOfBirth, "dob");
 		newCustomerPage.inputToDynamicField(driver, address, "addr");
@@ -95,17 +95,15 @@ public class Payment extends AbstractTest {
 		newCustomerPage.inputToDynamicField(driver, email, "emailid");
 		newCustomerPage.inputToDynamicField(driver, passwordAddNew, "password");
 
-		log.info("New Customer - Step 11: Click sub button");
+		log.info("TC_01_CreateNewCustomer - Step 03: Click Submit button");
 		newCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
 		newCustomerPage.sleepInSeconds(30);
 
 		verifyTrue(newCustomerPage.isDynamicSuccessMessageDisplayed(driver, "Customer Registered Successfully!!!"));
-		// verifyEquals(newCustomerPage.getPageTitleSuccess(driver), "Customer Registered Successfully!!!");
 		cusID = newCustomerPage.getDynamicTextInTable(driver, "Customer ID");
-		System.out.println(cusID);
 	}
 
-	// @Test
+	@Test
 	public void TC_02_EditCustomerSuccessAndCheck() {
 		homePage.openMultiplePages(driver, "Edit Customer");
 		editCustomerPage = PageFactoryManage.getEditCustomerPage(driver);
@@ -117,7 +115,7 @@ public class Payment extends AbstractTest {
 		editCustomerPage.inputToDynamicField(driver, pinEdit, "pinno");
 		editCustomerPage.inputToDynamicField(driver, mobileEdit, "telephoneno");
 		editCustomerPage.inputToDynamicField(driver, emailEdit, "emailid");
-		// editCustomerPage.clickToElement(driver, locator, values);
+		editCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
 
 	}
 
