@@ -29,7 +29,7 @@ public class Payment extends AbstractTest {
 	WebDriver driver;
 	private String customerName, dateOfBirth, address, city, state, pin, mobile, email, passwordAddNew, today, addressEdit, cityEdit, stateEdit,
 			pinEdit, mobileEdit, emailEdit;
-	private String amountToDeposit, currentAmount, SavevingsAmount;
+	private String amountToDeposit, currentAmount, SavevingsAmount, amountToWithDraw, amountToTransfer;
 	String currentAccountValue = "Current";
 	public static String cusID, payerAccountID, payeeAccountID;
 
@@ -76,6 +76,8 @@ public class Payment extends AbstractTest {
 		amountToDeposit = "5000";
 		currentAmount = "50000";
 		SavevingsAmount = "10000";
+		amountToWithDraw = "15000";
+		amountToTransfer = "10000";
 	}
 
 	@Test
@@ -105,173 +107,235 @@ public class Payment extends AbstractTest {
 
 	@Test
 	public void TC_02_EditCustomerSuccessAndCheck() {
+
+		log.info("TC_02 Edit Customer - Step 01: Open edit customer page");
 		homePage.openMultiplePages(driver, "Edit Customer");
 		editCustomerPage = PageFactoryManage.getEditCustomerPage(driver);
+
+		log.info("TC_02 Edit Customer - Step 02: Input Customer ID into field");
 		editCustomerPage.inputToDynamicField(driver, Payment.cusID, "cusid");
+
+		log.info("TC_02 Edit Customer - Step 03: Click to Submit button");
 		editCustomerPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
+
+		log.info("TC_02 Edit Customer - Step 04: Input edit value to editable field");
 		editCustomerPage.inputToDynamicField(driver, addressEdit, "addr");
 		editCustomerPage.inputToDynamicField(driver, cityEdit, "city");
 		editCustomerPage.inputToDynamicField(driver, stateEdit, "state");
 		editCustomerPage.inputToDynamicField(driver, pinEdit, "pinno");
 		editCustomerPage.inputToDynamicField(driver, mobileEdit, "telephoneno");
 		editCustomerPage.inputToDynamicField(driver, emailEdit, "emailid");
-		editCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
 
+		log.info("TC_02 Edit Customer - Step 05: Click to submit button");
+		editCustomerPage.clickToTextboxTextAreaButton(driver, "sub");
 	}
 
-	// @Test
+	@Test
 	public void TC_03_CreateNewAccountSuccessfull() {
 		log.info("-------------------------CREATE ACCOUNT 01----------------------------------------");
+		log.info("TC_03 Create New Account - Step 01: Open New account  page");
 		homePage.openMultiplePages(driver, "New Account");
 		newAccountPage = PageFactoryManage.getNewAccountPage(driver);
 
+		log.info("TC_03 Create New Account - Step 02: Input value to all field in New Account form");
 		newAccountPage.inputToDynamicField(driver, cusID, "cusid");
 		newAccountPage.selectFromDropdown(driver, "Current", "selaccount");
 		newAccountPage.inputToDynamicField(driver, currentAmount, "inideposit");
+
+		log.info("TC_03 Create New Account - Step 03: Click To submit button");
 		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
 
-		// Verify info input and displayed is equal
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer ID"), cusID);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer Name"), customerName);
-		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), email);
-
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), emailEdit);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Account Type"), currentAccountValue);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Date of Opening"), today);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Current Amount"), currentAmount);
 		payerAccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
 
 		log.info("-------------------------CREATE ACCOUNT 02----------------------------------------");
+		log.info("TC_03 Create New Account - Step 01: Open New account  page");
 		homePage.openMultiplePages(driver, "New Account");
 		newAccountPage = PageFactoryManage.getNewAccountPage(driver);
 
+		log.info("TC_03 Create New Account - Step 02: Input value to all field in New Account form");
 		newAccountPage.inputToDynamicField(driver, cusID, "cusid");
 		newAccountPage.selectFromDropdown(driver, "Current", "selaccount");
 		newAccountPage.inputToDynamicField(driver, SavevingsAmount, "inideposit");
-		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
 
-		// Verify info input and displayed is equal
+		log.info("TC_03 Create New Account - Step 03: Click To submit button");
+		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer ID"), cusID);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer Name"), customerName);
-		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), email);
-
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), emailEdit);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Account Type"), currentAccountValue);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Date of Opening"), today);
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Current Amount"), SavevingsAmount);
 		payeeAccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
 	}
 
-	// @Test
+	@Test
 	public void TC_04_EditAccount_ChangeToOtherType() {
+
+		log.info("TC_04 Edit Account - Step 01: Open Edit Account Page");
 		homePage.openMultiplePages(driver, "Edit Account");
 		editAccountPage = PageFactoryManage.getEditAccountPage(driver);
 
+		log.info("TC_04 Edit Account - Step 02: Input to Account No field");
 		editAccountPage.inputToDynamicField(driver, Payment.payerAccountID, "accountno");
 		editAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 		editAccountPage.selectFromDropdown(driver, "Savings", "a_type");
+
+		log.info("TC_04 Edit Account - Step 03: Click to submit button");
 		editAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 		verifyEquals(editAccountPage.getDynamicTextInTable(driver, "Account Type"), "Savings");
 	}
 
-	// @Test
+	@Test
 	public void TC_05_DepositMoneyToCurrentAccount() {
+
+		log.info("TC_05 Deposit - Step 01: Open Deposit Page");
 		editAccountPage.openMultiplePages(driver, "Deposit");
 		depositPage = PageFactoryManage.getDepositPage(driver);
 
-		log.info("Payment 05 - Step 01: Input data to deposit form");
+		log.info("TC_05 Deposit - Step 02: Input data to deposit form");
 		depositPage.inputToDynamicField(driver, payerAccountID, "accountno");
 		depositPage.inputToDynamicField(driver, amountToDeposit, "ammount");
 		depositPage.inputToDynamicField(driver, "Deposit", "desc");
+
+		log.info("TC_05 Deposit - Step 03: Click to submit button");
 		depositPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
-		log.info("Payment 05 - Step 02: Verify info input is correct");
 		verifyEquals(depositPage.getDynamicTextInTable(driver, "Account No"), payerAccountID);
 		verifyEquals(depositPage.getDynamicTextInTable(driver, "Amount Credited"), amountToDeposit);
 		verifyEquals(depositPage.getDynamicTextInTable(driver, "Current Balance"), "55000");
 	}
 
-	// @Test
+	@Test
 	public void TC_06_WithDrawFromCurrentAccount() {
+
+		log.info("TC_06 WithDraw - Step 01: Open WithDraw Page");
 		depositPage.openMultiplePages(driver, "Withdrawal");
 		withdrawPage = PageFactoryManage.getWithDrawPage(driver);
 
-		log.info("Payment 06 - Step 01: Input data to withdraw form");
+		log.info("TC_06 WithDraw - Step 02: Input data to WithDraw form");
 		withdrawPage.inputToDynamicField(driver, payerAccountID, "accountno");
-		withdrawPage.inputToDynamicField(driver, "15000", "ammount");
+		withdrawPage.inputToDynamicField(driver, amountToWithDraw, "ammount");
 		withdrawPage.inputToDynamicField(driver, "WITHDRAW", "desc");
+
+		log.info("TC_06 WithDraw - Step 03: Click to submit button");
 		withdrawPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
-		log.info("Payment 06 - Step 02: Verify info input is correct");
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Account No"), payerAccountID);
-		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Amount Debited"), "15000");
+		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Amount Debited"), amountToWithDraw);
 		verifyEquals(withdrawPage.getDynamicTextInTable(driver, "Current Balance"), "40000");
 	}
 
-	// @Test
+	@Test
 	public void TC_07_TransferMoneyToOtherAccount() {
+
+		log.info("TC_07 Transfer - Step 01: Open Fund Transfer Page");
 		withdrawPage.openMultiplePages(driver, "Fund Transfer");
 		fundTransferPage = PageFactoryManage.getFundTransferPage(driver);
 
-		log.info("Payment 07 - Step 01: Input data to Transfer form");
+		log.info("TC_07 Transfer - Step 02: Input data to Fund Transfer form");
 		fundTransferPage.inputToDynamicField(driver, payerAccountID, "payersaccount");
 		fundTransferPage.inputToDynamicField(driver, payeeAccountID, "payeeaccount");
-		fundTransferPage.inputToDynamicField(driver, "10000", "ammount");
+		fundTransferPage.inputToDynamicField(driver, amountToTransfer, "ammount");
 		fundTransferPage.inputToDynamicField(driver, "Transfer", "desc");
+
+		log.info("TC_07 Transfer - Step 03: Click to submit button");
 		fundTransferPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
-		log.info("Payment 08 - Step 02: Verify info input is correct");
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "From Account Number"), payerAccountID);
 		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "To Account Number"), payeeAccountID);
-		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "Amount"), "10000");
+		verifyEquals(fundTransferPage.getDynamicTextInTable(driver, "Amount"), amountToTransfer);
 	}
 
-	// @Test
+	@Test
 	public void TC_08_CheckCurrentAmount() {
+
+		log.info("TC_08 Transfer - Step 01: Open Balance Enquiry Page");
 		fundTransferPage.openMultiplePages(driver, "Balance Enquiry");
 		balaneEnquiryPage = PageFactoryManage.getBalaneEnquiryPage(driver);
 
+		log.info("TC_08 Transfer - Step 02: Input to AccountNo field");
 		balaneEnquiryPage.inputToDynamicField(driver, payerAccountID, "accountno");
+
+		log.info("TC_08 Transfer - Step 03: Click to submit button");
 		balaneEnquiryPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 
 		verifyEquals(balaneEnquiryPage.getDynamicTextInTable(driver, "Account No"), payerAccountID);
-		// verifyEquals(balaneEnquiryPage.getDynamicTextInTable(driver, "Type of
-		// Account"), currentAccountValue);
 		verifyEquals(balaneEnquiryPage.getDynamicTextInTable(driver, "Balance"), "30000");
 
 	}
 
-	// @Test
+	@Test
 	public void TC_09_DeleteAllAccountOfCustomer() {
+
+		log.info("TC_09 DeleteAccount - Step 01: Open Delete Account page");
 		homePage.openMultiplePages(driver, "Delete Account");
 		deleteAccountPage = PageFactoryManage.getDeleteAccountPage(driver);
 
+		log.info("TC_09 DeleteAccount - Step 02: Input to accountNo field");
 		deleteAccountPage.inputToDynamicField(driver, payerAccountID, "accountno");
+
+		log.info("TC_09 DeleteAccount - Step 03: Click to submit button");
 		deleteAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 		deleteAccountPage.sleepInSeconds(3000);
 		verifyEquals(deleteAccountPage.gettextAlert(driver), "Do you really want to delete this Account?");
+
+		log.info("TC_09 DeleteAccount - Step 04: Click OK to accept alert 'Do you really want to delete this Account?'");
 		deleteAccountPage.acceptAlert(driver);
 		deleteAccountPage.sleepInSeconds(3000);
 		verifyEquals(deleteAccountPage.gettextAlert(driver), "Account Deleted Sucessfully");
+
+		log.info("TC_09 DeleteAccount - Step 05: Click OK to accept alert 'Account Deleted Sucessfully'");
 		deleteAccountPage.acceptAlert(driver);
 
+		log.info("TC_09 DeleteAccount - Step 06: Open Delete Account page");
 		homePage.openMultiplePages(driver, "Delete Account");
 		deleteAccountPage = PageFactoryManage.getDeleteAccountPage(driver);
-		deleteAccountPage.inputToDynamicField(driver, payerAccountID, "accountno");
+
+		log.info("TC_09 DeleteAccount - Step 07: Input to accountNo field");
+		deleteAccountPage.inputToDynamicField(driver, payeeAccountID, "accountno");
+
+		log.info("TC_09 DeleteAccount - Step 08: Click to submit button");
 		deleteAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 		deleteAccountPage.sleepInSeconds(3000);
 		verifyEquals(deleteAccountPage.gettextAlert(driver), "Do you really want to delete this Account?");
+
+		log.info("TC_09 DeleteAccount - Step 09: Click OK to accept alert 'Do you really want to delete this Account?'");
 		deleteAccountPage.acceptAlert(driver);
 		deleteAccountPage.sleepInSeconds(3000);
-		verifyEquals(deleteAccountPage.gettextAlert(driver), "Account does not exist");
-		deleteAccountPage.acceptAlert(driver);
+		verifyEquals(deleteAccountPage.gettextAlert(driver), "Account Deleted Sucessfully");
 
-		//
-		// homePage.openMultiplePages(driver, "Delete Account");
-		// deleteAccountPage = PageFactoryManage.getDeleteAccountPage(driver);
-		//
-		// deleteAccountPage.inputToDynamicField(driver, payeeAccountID, "accountno");
-		// deleteAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
-		// deleteAccountPage.acceptAlert(driver);
-		// deleteAccountPage.acceptAlert(driver);
+		log.info("TC_09 DeleteAccount - Step 10: Click OK to accept alert 'Account Deleted Sucessfully'");
+		deleteAccountPage.acceptAlert(driver);
+	}
+
+	@Test
+	public void TC_10_deleteCustomerSuccessfull() {
+		log.info("TC_10 Delete Customer - Step 01: Open Delete Customer page");
+		homePage.openMultiplePages(driver, "Delete Customer");
+		deleteCustomerPage = PageFactoryManage.getDeleteCustomerPage(driver);
+
+		log.info("TC_10 Delete Customer - Step 02: Input to CustomerID field");
+		deleteCustomerPage.inputToDynamicField(driver, cusID, "cusid");
+
+		log.info("TC_10 Delete Customer - Step 03: Click to submit button");
+		deleteCustomerPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
+		deleteCustomerPage.sleepInSeconds(3000);
+		verifyEquals(deleteCustomerPage.gettextAlert(driver), "Do you really want to delete this Customer?");
+
+		log.info("TC_10 Delete Customer - Step 04: Click to OK to accept alert");
+		deleteCustomerPage.acceptAlert(driver);
+		deleteCustomerPage.sleepInSeconds(3000);
+		verifyEquals(deleteCustomerPage.gettextAlert(driver), "Customer deleted Successfully");
+
+		log.info("TC_10 Delete Customer - Step 04: Click to OK to accept alert 'Customer deleted Successfully'");
+		deleteCustomerPage.acceptAlert(driver);
+
 	}
 
 	@AfterClass
