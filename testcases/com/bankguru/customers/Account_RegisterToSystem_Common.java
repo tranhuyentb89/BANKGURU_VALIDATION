@@ -34,30 +34,19 @@ public class Account_RegisterToSystem_Common extends AbstractTest{
 		log.info("Register - Step 01: Verify Login form displayed");
 		verifyTrue(loginPage.isLoginFormDisplayed());
 
-//		log.info("Register - Step 02: Get URL of Login form");
-//		loginPageUrl = loginPage.getLoginPageUrl();
-
 		log.info("Register - Step 03: Click to here link");
 		registerPage = loginPage.clickToHereLink("here");
 
-//		log.info("Register - Step 04: Verify Register page is displayed");
-//		verifyTrue(registerPage.isRegisterPageDisplayed());
-
-		log.info("Register - Step 05: Input email and click to Login button");
+		log.info("Register - Step 04: Input email and click to Login button");
 		registerPage.inputToEmailTextbox(email);
 		registerPage.clickToLoginButton();
 
-		log.info("Register - Step 06: Get username and password");
+		log.info("Register - Step 05: Get username and password");
 		USER_ID = registerPage.getUserIDInfo();
 		PASSWORD = registerPage.getPasswordInfo();
 		driver.quit();
 
 	}
-
-//	@AfterTest
-//	public void afterClass() {
-//		driver.quit();
-//	}
 
 	public int ramdomNumber() {
 		Random radom = new Random();

@@ -77,8 +77,6 @@ public class AbstractTest {
 			Assert.assertTrue(condition);
 		} catch (Throwable e) {
 			pass = false;
-
-			// Add lỗi vào ReportNG
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
@@ -114,16 +112,16 @@ public class AbstractTest {
 		boolean status;
 		try {
 			if (actual instanceof String && expected instanceof String) {
-				actual = actual.toString().trim();
-				log.info("Actual = " + actual);
-				expected = expected.toString().trim();
-				log.info("Expected = " + expected);
+//				actual = actual.toString().trim();
+//				log.info("Actual = " + actual);
+//				expected = expected.toString().trim();
+//				log.info("Expected = " + expected);
 				status = (actual.equals(expected));
 			} else {
 				status = (actual == expected);
 			}
 
-			log.info("Compare value = " + status);
+//			log.info("Compare value = " + status);
 			if (status) {
 				log.info("===PASSED===");
 			} else {

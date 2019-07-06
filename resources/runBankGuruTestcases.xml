@@ -9,8 +9,6 @@
 		<classes>
 			<class name="com.bankguru.customers.Account_RegisterToSystem_Common" />
 			<class name="com.bankguru.payment.Payment" />
-			<class name="com.bankguru.customers.NewCustomer" />
-			
 		</classes>
 	</test>
 	<!--	-->
