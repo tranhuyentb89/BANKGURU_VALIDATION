@@ -9,25 +9,29 @@
 		<classes>
 			<class name="com.bankguru.customers.Account_RegisterToSystem_Common" />
 			<class name="com.bankguru.payment.Payment" />
+			<class name="com.bankguru.account.Verification_Account" />
+
 		</classes>
 	</test>
-	<!--	-->
-	<!--	<test name="RUN ON CHROME">-->
-	<!--		<parameter name="browser" value="chrome" />-->
-	<!--		<classes>-->
-	<!-- <class name="com.bankguru.customers.Account_RegisterToSystem_Common" />-->
-	<!--			<class name="com.bankguru.payment.Payment" />-->
-	<!--			-->
-	<!--		</classes>-->
-	<!--	</test>-->
-	<!--	-->
-	<!--	<test name="RUN ON CHROME HEADLESS">-->
-	<!--		<parameter name="browser" value="chromeheadless" />-->
-	<!--		<classes>-->
-	<!-- <class name="com.bankguru.customers.Account_RegisterToSystem_Common" />-->
-	<!--			<class name="com.bankguru.payment.Payment" />-->
-	<!--		</classes>-->
-	<!--	</test>-->
+	<!-- -->
+	<!-- <test name="RUN ON CHROME"> -->
+	<!-- <parameter name="browser" value="chrome" /> -->
+	<!-- <classes> -->
+	<!-- <class name="com.bankguru.customers.Account_RegisterToSystem_Common" 
+		/> -->
+	<!-- <class name="com.bankguru.payment.Payment" /> -->
+	<!-- -->
+	<!-- </classes> -->
+	<!-- </test> -->
+	<!-- -->
+	<!-- <test name="RUN ON CHROME HEADLESS"> -->
+	<!-- <parameter name="browser" value="chromeheadless" /> -->
+	<!-- <classes> -->
+	<!-- <class name="com.bankguru.customers.Account_RegisterToSystem_Common" 
+		/> -->
+	<!-- <class name="com.bankguru.payment.Payment" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
 </suite>
 
 

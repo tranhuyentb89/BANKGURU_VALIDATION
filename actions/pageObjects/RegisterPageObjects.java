@@ -6,7 +6,6 @@ import com.bankguru.customers.AbstractPageUI;
 import com.bankguru.customers.RegisterPageUI;
 
 import commons.AbstractPage;
-import commons.PageFactoryManage;
 
 public class RegisterPageObjects extends AbstractPage {
 	public RegisterPageObjects(WebDriver mappingDriver) {
@@ -23,7 +22,7 @@ public class RegisterPageObjects extends AbstractPage {
 	public void clickToLoginButton() {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
 		if (driver.toString().toLowerCase().contains("internet explorer")) {
-			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON ,"btnLogin");
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
 			sleepInSeconds(5);
 		} else {
 			clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "btnLogin");
@@ -37,15 +36,5 @@ public class RegisterPageObjects extends AbstractPage {
 	public String getPasswordInfo() {
 		return getTextElement(driver, RegisterPageUI.PASSWORD_TEXT);
 	}
-
-	public LoginPageObjects openLoginPage(String loginPageUrl) {
-		openUrl(driver, loginPageUrl);
-		return PageFactoryManage.getLoginPage(driver);
-	}
-
-//	public boolean isRegisterPageDisplayed() {
-//		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX,);
-//		return false;
-//	}
 
 }

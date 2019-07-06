@@ -45,11 +45,11 @@ public class NewCustomer extends AbstractTest {
 		verifyTrue(loginPage.isLoginFormDisplayed());
 
 		log.info("Login - Step 02: Input username and password");
-		loginPage.inputToUserIDTextbox(Account_RegisterToSystem_Common.USER_ID);
-		loginPage.inputToPasswordTextbox(Account_RegisterToSystem_Common.PASSWORD);
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.USER_ID, "uid");
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.PASSWORD, "password");
 
 		log.info("Login - Step 03: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton(driver, "btnLogin");
 
 	}
 

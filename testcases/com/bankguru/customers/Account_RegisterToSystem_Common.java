@@ -35,11 +35,11 @@ public class Account_RegisterToSystem_Common extends AbstractTest{
 		verifyTrue(loginPage.isLoginFormDisplayed());
 
 		log.info("Register - Step 03: Click to here link");
-		registerPage = loginPage.clickToHereLink("here");
+		registerPage = loginPage.clickToHereLink(driver, "here");
 
 		log.info("Register - Step 04: Input email and click to Login button");
 		registerPage.inputToEmailTextbox(email);
-		registerPage.clickToLoginButton();
+		registerPage.clickToTextboxTextAreaButton(driver, "btnLogin");
 
 		log.info("Register - Step 05: Get username and password");
 		USER_ID = registerPage.getUserIDInfo();

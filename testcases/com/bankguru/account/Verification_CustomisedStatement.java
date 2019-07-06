@@ -32,9 +32,9 @@ public class Verification_CustomisedStatement extends AbstractTest{
 	
 	@Test
 	public void TC_01_Login() {
-		loginPage.inputToUserIDTextbox(Account_RegisterToSystem_Common.USER_ID);
-		loginPage.inputToPasswordTextbox(Account_RegisterToSystem_Common.PASSWORD);
-		homePage = loginPage.clickToLoginButton();
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.USER_ID, "uid");
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.PASSWORD, "password");
+		homePage = loginPage.clickToLoginButton(driver, "btnLogin");
 	}
 	
 	@Test

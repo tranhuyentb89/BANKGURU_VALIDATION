@@ -1,109 +1,109 @@
-2019-07-06 09:48:30,806 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
-2019-07-06 09:48:30,891 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
-2019-07-06 09:48:30,892 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
-2019-07-06 09:48:32,770 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 04: Input email and click to Login button
-2019-07-06 09:48:34,467 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Get username and password
-2019-07-06 09:48:41,931 INFO  com.bankguru.payment.Payment - Precondition- Step 01: Input Username and Password 
-2019-07-06 09:48:42,140 INFO  com.bankguru.payment.Payment - Precondition- Step 02: Click to login button
-2019-07-06 09:48:43,899 INFO  com.bankguru.payment.Payment - TC_01_CreateNewCustomer - Step 01: Open new customer page
-2019-07-06 09:48:44,708 INFO  com.bankguru.payment.Payment - TC_01_CreateNewCustomer - Step 02: Input info to all field
-2019-07-06 09:48:46,170 INFO  com.bankguru.payment.Payment - TC_01_CreateNewCustomer - Step 03: Click Submit button
-2019-07-06 09:48:47,701 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 04: Sleep 30s
-2019-07-06 09:48:47,732 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 05: Verify message 'Customer Registered Successfully' is displayed
-2019-07-06 09:48:47,773 INFO  com.bankguru.payment.Payment - ===PASSED==
-2019-07-06 09:48:47,880 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 01: Open Edit Customer page
-2019-07-06 09:48:48,979 INFO  com.bankguru.payment.Payment - TC_02 Edit Customer - Step 02: Input Customer ID into field
-2019-07-06 09:48:49,135 INFO  com.bankguru.payment.Payment - TC_02 Edit Customer - Step 03: Click to Submit button
-2019-07-06 09:48:50,261 INFO  com.bankguru.payment.Payment - TC_02 Edit Customer - Step 04: Input edit value to editable field
-2019-07-06 09:48:51,136 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 05: Click to Submit button
-2019-07-06 09:48:52,486 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 06: Verify message 'Customer details updated Successfully!!!' is displayed
-2019-07-06 09:48:52,531 INFO  com.bankguru.payment.Payment - ===PASSED==
-2019-07-06 09:48:52,533 INFO  com.bankguru.payment.Payment - -------------------------CREATE ACCOUNT 01----------------------------------------
-2019-07-06 09:48:52,534 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 01: Open New account  page
-2019-07-06 09:48:53,326 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 02: Input value to all field in New Account form
-2019-07-06 09:48:53,689 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 03: Click To submit button
-2019-07-06 09:48:55,048 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 04: Verify Customer ID is matching
-2019-07-06 09:48:55,111 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:55,111 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 05: Verify Customer Name is matching
-2019-07-06 09:48:55,162 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:55,163 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 06: Verify Email is matching
-2019-07-06 09:48:55,245 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:55,246 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 07: Verify Account Type is matching
-2019-07-06 09:48:55,299 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:55,299 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 08: Verify Date of Opening is matching
-2019-07-06 09:48:55,341 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:55,341 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 09: Verify Current Amount is matching
-2019-07-06 09:48:55,390 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:55,439 INFO  com.bankguru.payment.Payment - -------------------------CREATE ACCOUNT 02----------------------------------------
-2019-07-06 09:48:55,439 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 01: Open New account  page
-2019-07-06 09:48:55,858 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 02: Input value to all field in New Account form
-2019-07-06 09:48:56,181 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 03: Click To submit button
-2019-07-06 09:48:57,593 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 04: Verify Customer ID is matching
-2019-07-06 09:48:57,658 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:57,658 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 05: Verify Customer Name is matching
-2019-07-06 09:48:57,731 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:57,731 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 06: Verify Email is matching
-2019-07-06 09:48:57,778 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:57,778 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 07: Verify Account Type is matching
-2019-07-06 09:48:57,821 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:57,821 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 08: Verify Date of Opening is matching
-2019-07-06 09:48:57,863 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:57,863 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 09: Verify Current Amount is matching
-2019-07-06 09:48:57,910 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:48:57,956 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 01: Open Edit Account Page
-2019-07-06 09:48:59,359 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 02: Input to Account No field
-2019-07-06 09:49:00,985 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 03: Click to submit button
-2019-07-06 09:49:02,326 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 04: Verify Change Account Type is success
-2019-07-06 09:49:02,385 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:02,387 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 01: Open Deposit Page
-2019-07-06 09:49:03,670 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 02: Input data to deposit form
-2019-07-06 09:49:04,036 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 03: Click to submit button
-2019-07-06 09:49:05,380 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 04: Verify Account No is matching
-2019-07-06 09:49:05,453 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:05,453 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 05: Verify Amount to deposit is matching with inputed value
-2019-07-06 09:49:05,529 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:05,529 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 06: Verify Current balance is matching
-2019-07-06 09:49:05,585 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:05,586 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 01: Open WithDraw Page
-2019-07-06 09:49:06,630 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 02: Input data to WithDraw form
-2019-07-06 09:49:06,990 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 03: Click to submit button
-2019-07-06 09:49:08,277 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 04: Verify Account No is matched
-2019-07-06 09:49:08,330 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:08,330 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 04: Verify amount withdraw is matched
-2019-07-06 09:49:08,379 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:08,379 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 04: Verify Current Balance is matched
-2019-07-06 09:49:08,429 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:08,430 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 01: Open Fund Transfer Page
-2019-07-06 09:49:09,711 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 02: Input data to Fund Transfer form
-2019-07-06 09:49:10,179 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 03: Click to submit button
-2019-07-06 09:49:11,767 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 04: Verify Account Number is matched
-2019-07-06 09:49:11,831 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:11,831 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 05: Verify PayeeAccount is matched
-2019-07-06 09:49:11,877 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:11,877 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 06: verify Amount is matched
-2019-07-06 09:49:11,922 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:11,923 INFO  com.bankguru.payment.Payment - TC_08 Transfer - Step 01: Open Balance Enquiry Page
-2019-07-06 09:49:13,006 INFO  com.bankguru.payment.Payment - TC_08 Transfer - Step 02: Input to AccountNo field
-2019-07-06 09:49:13,139 INFO  com.bankguru.payment.Payment - TC_08 Transfer - Step 03: Click to submit button
-2019-07-06 09:49:14,458 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:14,521 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:14,522 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 01: Open Delete Account page
-2019-07-06 09:49:15,622 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 02: Input to accountNo field
-2019-07-06 09:49:15,783 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 03: Click to submit button
-2019-07-06 09:49:18,840 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:18,840 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 04: Click OK to accept alert 'Do you really want to delete this Account?'
-2019-07-06 09:49:21,855 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:21,856 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 05: Click OK to accept alert 'Account Deleted Sucessfully'
-2019-07-06 09:49:21,869 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 06: Open Delete Account page
-2019-07-06 09:49:23,311 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 07: Input to accountNo field
-2019-07-06 09:49:23,451 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 08: Click to submit button
-2019-07-06 09:49:26,500 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:26,500 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 09: Click OK to accept alert 'Do you really want to delete this Account?'
-2019-07-06 09:49:29,515 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:29,527 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 01: Open Delete Customer page
-2019-07-06 09:49:31,333 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 02: Input to CustomerID field
-2019-07-06 09:49:31,482 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 03: Click to submit button
-2019-07-06 09:49:34,543 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:34,543 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 04: Click to OK to accept alert
-2019-07-06 09:49:37,556 INFO  com.bankguru.payment.Payment - ===PASSED===
-2019-07-06 09:49:37,556 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 04: Click to OK to accept alert 'Customer deleted Successfully'
+2019-07-06 11:44:41,582 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 01: Verify Login form displayed
+2019-07-06 11:44:41,690 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - ===PASSED==
+2019-07-06 11:44:41,692 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 03: Click to here link
+2019-07-06 11:44:43,602 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 04: Input email and click to Login button
+2019-07-06 11:44:45,051 INFO  com.bankguru.customers.Account_RegisterToSystem_Common - Register - Step 05: Get username and password
+2019-07-06 11:44:52,840 INFO  com.bankguru.payment.Payment - Precondition- Step 01: Input Username and Password 
+2019-07-06 11:44:53,127 INFO  com.bankguru.payment.Payment - Precondition- Step 02: Click to login button
+2019-07-06 11:44:55,105 INFO  com.bankguru.payment.Payment - TC_01_CreateNewCustomer - Step 01: Open new customer page
+2019-07-06 11:44:55,974 INFO  com.bankguru.payment.Payment - TC_01_CreateNewCustomer - Step 02: Input info to all field
+2019-07-06 11:44:57,547 INFO  com.bankguru.payment.Payment - TC_01_CreateNewCustomer - Step 03: Click Submit button
+2019-07-06 11:44:59,053 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 04: Sleep 30s
+2019-07-06 11:44:59,085 INFO  com.bankguru.payment.Payment - TC01_Create New Customer- Step 05: Verify message 'Customer Registered Successfully' is displayed
+2019-07-06 11:44:59,147 INFO  com.bankguru.payment.Payment - ===PASSED==
+2019-07-06 11:44:59,215 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 01: Open Edit Customer page
+2019-07-06 11:45:00,845 INFO  com.bankguru.payment.Payment - TC_02 Edit Customer - Step 02: Input Customer ID into field
+2019-07-06 11:45:01,022 INFO  com.bankguru.payment.Payment - TC_02 Edit Customer - Step 03: Click to Submit button
+2019-07-06 11:45:02,316 INFO  com.bankguru.payment.Payment - TC_02 Edit Customer - Step 04: Input edit value to editable field
+2019-07-06 11:45:03,159 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 05: Click to Submit button
+2019-07-06 11:45:04,524 INFO  com.bankguru.payment.Payment - TC_02_EditCustomer- Step 06: Verify message 'Customer details updated Successfully!!!' is displayed
+2019-07-06 11:45:04,565 INFO  com.bankguru.payment.Payment - ===PASSED==
+2019-07-06 11:45:04,567 INFO  com.bankguru.payment.Payment - -------------------------CREATE ACCOUNT 01----------------------------------------
+2019-07-06 11:45:04,567 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 01: Open New account  page
+2019-07-06 11:45:05,384 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 02: Input value to all field in New Account form
+2019-07-06 11:45:05,749 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 03: Click To submit button
+2019-07-06 11:45:07,107 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 04: Verify Customer ID is matching
+2019-07-06 11:45:07,193 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:07,193 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 05: Verify Customer Name is matching
+2019-07-06 11:45:07,254 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:07,254 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 06: Verify Email is matching
+2019-07-06 11:45:07,301 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:07,301 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 07: Verify Account Type is matching
+2019-07-06 11:45:07,348 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:07,348 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 08: Verify Date of Opening is matching
+2019-07-06 11:45:07,396 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:07,396 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 09: Verify Current Amount is matching
+2019-07-06 11:45:07,444 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:07,494 INFO  com.bankguru.payment.Payment - -------------------------CREATE ACCOUNT 02----------------------------------------
+2019-07-06 11:45:07,494 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 01: Open New account  page
+2019-07-06 11:45:07,983 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 02: Input value to all field in New Account form
+2019-07-06 11:45:08,309 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 03: Click To submit button
+2019-07-06 11:45:09,911 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 04: Verify Customer ID is matching
+2019-07-06 11:45:09,968 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:09,968 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 05: Verify Customer Name is matching
+2019-07-06 11:45:10,017 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:10,017 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 06: Verify Email is matching
+2019-07-06 11:45:10,058 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:10,058 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 07: Verify Account Type is matching
+2019-07-06 11:45:10,107 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:10,107 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 08: Verify Date of Opening is matching
+2019-07-06 11:45:10,153 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:10,153 INFO  com.bankguru.payment.Payment - TC_03 Create New Account - Step 09: Verify Current Amount is matching
+2019-07-06 11:45:10,191 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:10,233 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 01: Open Edit Account Page
+2019-07-06 11:45:11,757 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 02: Input to Account No field
+2019-07-06 11:45:13,277 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 03: Click to submit button
+2019-07-06 11:45:14,934 INFO  com.bankguru.payment.Payment - TC_04 Edit Account - Step 04: Verify Change Account Type is success
+2019-07-06 11:45:14,988 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:14,990 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 01: Open Deposit Page
+2019-07-06 11:45:16,094 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 02: Input data to deposit form
+2019-07-06 11:45:16,498 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 03: Click to submit button
+2019-07-06 11:45:17,593 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 04: Verify Account No is matching
+2019-07-06 11:45:17,655 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:17,655 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 05: Verify Amount to deposit is matching with inputed value
+2019-07-06 11:45:17,699 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:17,700 INFO  com.bankguru.payment.Payment - TC_05 Deposit - Step 06: Verify Current balance is matching
+2019-07-06 11:45:17,746 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:17,747 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 01: Open WithDraw Page
+2019-07-06 11:45:18,834 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 02: Input data to WithDraw form
+2019-07-06 11:45:19,207 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 03: Click to submit button
+2019-07-06 11:45:20,592 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 04: Verify Account No is matched
+2019-07-06 11:45:20,675 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:20,675 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 04: Verify amount withdraw is matched
+2019-07-06 11:45:20,738 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:20,738 INFO  com.bankguru.payment.Payment - TC_06 WithDraw - Step 04: Verify Current Balance is matched
+2019-07-06 11:45:20,789 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:20,790 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 01: Open Fund Transfer Page
+2019-07-06 11:45:22,247 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 02: Input data to Fund Transfer form
+2019-07-06 11:45:22,712 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 03: Click to submit button
+2019-07-06 11:45:24,112 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 04: Verify Account Number is matched
+2019-07-06 11:45:24,202 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:24,202 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 05: Verify PayeeAccount is matched
+2019-07-06 11:45:24,250 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:24,251 INFO  com.bankguru.payment.Payment - TC_07 Transfer - Step 06: verify Amount is matched
+2019-07-06 11:45:24,300 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:24,301 INFO  com.bankguru.payment.Payment - TC_08 Transfer - Step 01: Open Balance Enquiry Page
+2019-07-06 11:45:25,735 INFO  com.bankguru.payment.Payment - TC_08 Transfer - Step 02: Input to AccountNo field
+2019-07-06 11:45:25,906 INFO  com.bankguru.payment.Payment - TC_08 Transfer - Step 03: Click to submit button
+2019-07-06 11:45:27,360 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:27,413 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:27,415 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 01: Open Delete Account page
+2019-07-06 11:45:28,706 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 02: Input to accountNo field
+2019-07-06 11:45:28,851 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 03: Click to submit button
+2019-07-06 11:45:31,922 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:31,922 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 04: Click OK to accept alert 'Do you really want to delete this Account?'
+2019-07-06 11:45:34,929 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:34,930 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 05: Click OK to accept alert 'Account Deleted Sucessfully'
+2019-07-06 11:45:34,939 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 06: Open Delete Account page
+2019-07-06 11:45:36,525 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 07: Input to accountNo field
+2019-07-06 11:45:36,664 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 08: Click to submit button
+2019-07-06 11:45:39,715 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:39,715 INFO  com.bankguru.payment.Payment - TC_09 DeleteAccount - Step 09: Click OK to accept alert 'Do you really want to delete this Account?'
+2019-07-06 11:45:42,726 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:42,735 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 01: Open Delete Customer page
+2019-07-06 11:45:44,625 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 02: Input to CustomerID field
+2019-07-06 11:45:44,831 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 03: Click to submit button
+2019-07-06 11:45:47,900 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:47,901 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 04: Click to OK to accept alert
+2019-07-06 11:45:50,927 INFO  com.bankguru.payment.Payment - ===PASSED===
+2019-07-06 11:45:50,927 INFO  com.bankguru.payment.Payment - TC_10 Delete Customer - Step 04: Click to OK to accept alert 'Customer deleted Successfully'

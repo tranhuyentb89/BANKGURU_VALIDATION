@@ -34,9 +34,9 @@ public class Verification_Account extends AbstractTest {
 	
 	@Test
 	public void TC_01_Login() {
-		loginPage.inputToUserIDTextbox(Account_RegisterToSystem_Common.USER_ID);
-		loginPage.inputToPasswordTextbox(Account_RegisterToSystem_Common.PASSWORD);
-		homePage = loginPage.clickToLoginButton();
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.USER_ID, "uid");
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.PASSWORD, "password");
+		homePage = loginPage.clickToLoginButton(driver, "btnLogin");
 	}
 	
 	@Test
@@ -84,27 +84,13 @@ public class Verification_Account extends AbstractTest {
 		verifyEquals(newAccountPage.getDynamicMessageField(driver, "Customer id"), "First character can not have space");
 		verifyEquals(newAccountPage.getDynamicMessageField(driver, "Initial deposit"), "First character can not have space");
 	}
-	
-//	@Test
-//	public void TC_06_EditAccount_ValidationEmpty() {
-//		homePage.openMultiplePages(driver, "Edit Account");
-//		editAccountPage= PageFactoryManage.getEditAccountPage(driver);
-//
-//		editAccountPage.inputToDynamicField(driver, Payment.AccountID, "accountno");
-//		editAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
-//		//editAccountPage.removeAttributeInDOM(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, "disabled", "txtcid");
-//		editAccountPage.removeAttribute(driver, "disabled", "txtcid");
-//		editAccountPage.clearValueOfTextboxAreabox(driver, "txtcid");
-//		editAccountPage.pressTab(driver, "txtcid");
-//		verifyEquals(editAccountPage.getDynamicMessageField(driver, "txtcid"), "Customer ID is required");
-//	}
-	
+
 	@Test
 	public void TC_06_EditAccount_ChangeToOtherType() {
 		homePage.openMultiplePages(driver, "Edit Account");
 		editAccountPage= PageFactoryManage.getEditAccountPage(driver);
 
-		editAccountPage.inputToDynamicField(driver, Payment.payerAccountID, "accountno");
+		editAccountPage.inputToDynamicField(driver, Payment.AccountID, "accountno");
 		editAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");
 		editAccountPage.selectFromDropdown(driver, "Savings", "a_type");
 		editAccountPage.clickToTextboxTextAreaButton(driver, "AccSubmit");

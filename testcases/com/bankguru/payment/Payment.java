@@ -30,7 +30,7 @@ public class Payment extends AbstractTest {
 	private String customerName, dateOfBirth, address, city, state, pin, mobile, email, passwordAddNew, addressEdit,
 			cityEdit, stateEdit, pinEdit, mobileEdit, emailEdit, today;
 	String currentAmount, SavevingsAmount, amountWithDraw, amountTransfer, amountToDeposit, currentAccountValue;
-	public static String cusID, payerAccountID, payeeAccountID;
+	public static String cusID, payerAccountID, payeeAccountID, AccountID;
 
 	LoginPageObjects loginPage;
 	HomePageObject homePage;
@@ -52,10 +52,10 @@ public class Payment extends AbstractTest {
 		loginPage = PageFactoryManage.getLoginPage(driver);
 
 		log.info("Precondition- Step 01: Input Username and Password ");
-		loginPage.inputToUserIDTextbox(Account_RegisterToSystem_Common.USER_ID);
-		loginPage.inputToPasswordTextbox(Account_RegisterToSystem_Common.PASSWORD);
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.USER_ID, "uid");
+		loginPage.inputToDynamicField(driver, Account_RegisterToSystem_Common.PASSWORD, "password");
 		log.info("Precondition- Step 02: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton(driver, "btnLogin");
 		today = getLocalDate();
 		currentAmount = "50000";
 		SavevingsAmount = "10000";
@@ -80,28 +80,6 @@ public class Payment extends AbstractTest {
 		currentAccountValue = "Current";
 
 		customerName = "Tran thi huyen";
-		// dateOfBirth = "01/01/1989";
-		// address = "PO Box 9118331 Duis Avenue";
-		// city = "Tampa";
-		// state = "FL";
-		// pin = "466250";
-		// mobile = "478822211";
-		// email = "tranhuyentb89" + ramdomNumber() + "@gmail.com";
-		// passwordAddNew = "123456";
-		// addressEdit = "1883 Cursus Avenue";
-		// cityEdit = "Houston";
-		// stateEdit = "Texas";
-		// pinEdit = "166455";
-		// mobileEdit = "3838819198";
-		// emailEdit = "testNG@gmail.com";
-		//
-		// amountToDeposit = "5000";
-		// currentAmount = "50000";
-		// SavevingsAmount = "10000";
-		// amountToWithDraw = "15000";
-		// amountToTransfer = "10000";
-		// >>>>>>> branch 'master' of
-		// https://github.com/tranhuyentb89/BANKGURU_VALIDATION
 	}
 
 	@Test
@@ -226,6 +204,39 @@ public class Payment extends AbstractTest {
 		log.info("TC_03 Create New Account - Step 09: Verify Current Amount is matching");
 		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Current Amount"), SavevingsAmount);
 		payeeAccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
+		
+		log.info("-------------------------CREATE ACCOUNT 03----------------------------------------");
+		log.info("TC_03 Create New Account - Step 01: Open New account  page");
+		homePage.openMultiplePages(driver, "New Account");
+		newAccountPage = PageFactoryManage.getNewAccountPage(driver);
+
+		log.info("TC_03 Create New Account - Step 02: Input value to all field in New Account form");
+		newAccountPage.inputToDynamicField(driver, cusID, "cusid");
+		newAccountPage.selectFromDropdown(driver, "Current", "selaccount");
+		newAccountPage.inputToDynamicField(driver, SavevingsAmount, "inideposit");
+
+		log.info("TC_03 Create New Account - Step 03: Click To submit button");
+		newAccountPage.clickToTextboxTextAreaButton(driver, "button2");
+
+		log.info("TC_03 Create New Account - Step 04: Verify Customer ID is matching");
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer ID"), cusID);
+
+		log.info("TC_03 Create New Account - Step 05: Verify Customer Name is matching");
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Customer Name"), customerName);
+
+		log.info("TC_03 Create New Account - Step 06: Verify Email is matching");
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Email"), emailEdit);
+
+		log.info("TC_03 Create New Account - Step 07: Verify Account Type is matching");
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Account Type"), currentAccountValue);
+
+		log.info("TC_03 Create New Account - Step 08: Verify Date of Opening is matching");
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Date of Opening"), today);
+
+		log.info("TC_03 Create New Account - Step 09: Verify Current Amount is matching");
+		verifyEquals(newAccountPage.getDynamicTextInTable(driver, "Current Amount"), SavevingsAmount);
+		AccountID = newAccountPage.getDynamicTextInTable(driver, "Account ID");
+
 	}
 
 	@Test
@@ -388,6 +399,7 @@ public class Payment extends AbstractTest {
 
 	@Test
 	public void TC_10_deleteCustomerSuccessfull() {
+		
 		log.info("TC_10 Delete Customer - Step 01: Open Delete Customer page");
 		homePage.openMultiplePages(driver, "Delete Customer");
 		deleteCustomerPage = PageFactoryManage.getDeleteCustomerPage(driver);

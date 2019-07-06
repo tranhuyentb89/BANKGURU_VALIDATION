@@ -16,6 +16,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.bankguru.customers.AbstractPageUI;
 
+import pageObjects.HomePageObject;
+import pageObjects.RegisterPageObjects;
+
 public class AbstractPage {
 	WebDriverWait explicit;
 	By byLocator;
@@ -91,7 +94,6 @@ public class AbstractPage {
 	}
 
 	public void clickToElement(WebDriver driver, String locator) {
-		// highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
@@ -104,7 +106,6 @@ public class AbstractPage {
 
 	public void sendKeyToElement(WebDriver driver, String locator, String valueToSendkeys, String... values) {
 		locator = String.format(locator, (Object[]) values);
-		// highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(valueToSendkeys);
@@ -130,32 +131,20 @@ public class AbstractPage {
 	}
 
 	public void selectItemInCustomDropdown(WebDriver driver, String scrollXpath, String parentXpath, String childXpath, String expectedValue) throws Exception {
-		// scroll toi element (cha)
 		JavascriptExecutor javascript;
 		javascript = (JavascriptExecutor) driver;
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		javascript.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(scrollXpath)));
 		Thread.sleep(1000);
 
-		// click vao dropdown
 		WebElement element = driver.findElement(By.xpath(parentXpath));
 		element.click();
 		Thread.sleep(1000);
-
-		// get tat ca cac item trong dropdown vao 1 list elements
 		List<WebElement> childList = driver.findElements(By.xpath(childXpath));
-
-		// wait de tat ca cac phan tu trong dropdown duoc hien thi
 		wait.until(ExpectedConditions.visibilityOfAllElements(childList));
-
-		// dung vong lap for duyet qua tung phan tu sau do gettext
 		for (WebElement child : childList) {
 			String textItem = child.getText().trim();
-
-			// neu actual text = expected text thi click vao phan tu do va break ra khoi
-			// vong lap
 			if (textItem.equals(expectedValue)) {
-				// scroll den expected item de click
 				javascript.executeScript("arguments[0].scrollIntoView(true);", child);
 				Thread.sleep(1000);
 				child.click();
@@ -169,7 +158,6 @@ public class AbstractPage {
 		try {
 			Thread.sleep(timeInSecond);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -204,14 +192,12 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
-		// highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
-		// highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
@@ -254,12 +240,9 @@ public class AbstractPage {
 	}
 
 	public void switchToChildWindowByID(WebDriver driver, String parent) throws Exception {
-		// get ra tat ca cac tab dang co
 		Set<String> allWindows = driver.getWindowHandles();
 		Thread.sleep(3000);
-		// dung vong for duyet qua tung cua so
 		for (String runWindow : allWindows) {
-			// kiem tra neu Id cua cua so nao khac voi parentId thi switch qua
 			if (!runWindow.equals(parent)) {
 				driver.switchTo().window(runWindow);
 				break;
@@ -322,24 +305,15 @@ public class AbstractPage {
 	}
 
 	public boolean isControlUndisplayed(WebDriver driver, String locator) {
-		// Date date = new Date();
-		// System.out.println("Start time to check control undisplayed " +
-		// date.toString());
 		overideTimeout(driver, Constants.SHORT_TIMEOUT);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
 		if (elements.size() == 0) {
 			overideTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
 		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
-			// System.out.println("Element co trong DOM nhung ko visible");
-			// System.out.println("End time to check control undisplayed = " + new
-			// Date().toString());
 			overideTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
 		} else {
-			// System.out.println("Element co trong dom nhung visible");
-			// System.out.println("End time to check control undisplayed = " + new
-			// Date().toString());
 			overideTimeout(driver, Constants.LONG_TIMEOUT);
 			return false;
 		}
@@ -368,7 +342,6 @@ public class AbstractPage {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		js.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element, "style", originalStyle);
@@ -577,5 +550,26 @@ public class AbstractPage {
 	public void selectFromDropdown(WebDriver driver, String value, String fieldName) {
 		selectItemInHtmlDropdown(driver, AbstractPageUI.DYNAMIC_DROPDOWN, value, fieldName);
 	}
+	
+	public RegisterPageObjects clickToHereLink(WebDriver driver, String hereLinkText) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, hereLinkText);
+		}
+		return PageFactoryManage.getRegisterPage(driver);
+	}
+	public HomePageObject clickToLoginButton(WebDriver driver, String fieldName) {
+		if (driver.toString().toLowerCase().contains("internet explorer")) {
+			clickToElementByJS(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, fieldName);
+			sleepInSeconds(5);
+		} else {
+			clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON, fieldName);
+		}
+		return PageFactoryManage.getHomePage(driver);
+	}
+
 
 }
